@@ -1,0 +1,15 @@
+# terraform
+.terraform
+*.tfstate*
+terraform.tfstate
+terraform.tfvars
+
+# macOS
+.DS_Store
+
+# vim
+*~
+*.swp
+
+# jetbrains
+.idea
