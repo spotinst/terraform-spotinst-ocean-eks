@@ -14,19 +14,9 @@ provider "kubernetes" {
   load_config_file       = false
 }
 
-locals {
-  cluster_name = "ocean-${random_string.suffix.result}"
-  tags         = {}
-}
-
-resource "random_string" "suffix" {
-  length  = 8
-  special = false
-}
-
 resource "aws_security_group" "all_worker_mgmt" {
   name_prefix = "all_worker_management"
-  vpc_id      = module.vpc.vpc_id
+  vpc_id      = local.vpc_id
 
   ingress {
     from_port = 22
@@ -68,16 +58,14 @@ resource "aws_iam_role_policy_attachment" "workers_AmazonEC2ContainerRegistryRea
 }
 
 resource "spotinst_ocean_aws" "this" {
-  depends_on = [module.eks]
-
-  name                        = var.cluster_name
-  controller_id               = var.cluster_identifier != null ? var.cluster_identifier : module.eks.cluster_id
+  name                        = local.cluster_name
+  controller_id               = local.cluster_identifier
   region                      = var.region
   max_size                    = var.max_size
   min_size                    = var.min_size
   desired_capacity            = var.desired_capacity
-  subnet_ids                  = module.vpc.private_subnets
-  image_id                    = var.ami_id != null ? var.ami_id : module.eks.workers_default_ami_id
+  subnet_ids                  = local.subnets
+  image_id                    = local.ami_id
   security_groups             = [aws_security_group.all_worker_mgmt.id, module.eks.worker_security_group_id]
   key_name                    = var.key_name
   associate_public_ip_address = var.associate_public_ip_address
@@ -108,6 +96,7 @@ module "vpc" {
   source  = "terraform-aws-modules/vpc/aws"
   version = "2.29.0"
 
+  create_vpc         = var.vpc_id == null
   name               = local.cluster_name
   cidr               = "10.0.0.0/16"
   azs                = [data.aws_availability_zones.available.names[0], data.aws_availability_zones.available.names[1], data.aws_availability_zones.available.names[2]]
@@ -116,7 +105,7 @@ module "vpc" {
   enable_nat_gateway = true
   single_nat_gateway = true
   tags = merge(
-    local.tags,
+    var.tags,
     {
       "kubernetes.io/cluster/${local.cluster_name}" = "shared"
     },
@@ -127,11 +116,11 @@ module "eks" {
   source  = "terraform-aws-modules/eks/aws"
   version = "10.0.0"
 
-  cluster_name    = local.cluster_name
   cluster_version = var.cluster_version
-  subnets         = module.vpc.private_subnets
-  tags            = local.tags
-  vpc_id          = module.vpc.vpc_id
+  cluster_name    = local.cluster_name
+  vpc_id          = local.vpc_id
+  subnets         = local.subnets
+  tags            = var.tags
   map_roles = [
     {
       rolearn  = aws_iam_role.workers.arn

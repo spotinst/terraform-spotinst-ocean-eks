@@ -25,6 +25,18 @@ variable "cluster_version" {
   default     = "1.18"
 }
 
+variable "subnets" {
+  type        = list(string)
+  description = "A list of subnets to place the EKS cluster and workers within"
+  default     = null
+}
+
+variable "vpc_id" {
+  type        = string
+  description = "VPC where the cluster and workers will be deployed"
+  default     = null
+}
+
 variable "region" {
   type        = string
   description = "The region the EKS cluster will be located"
@@ -34,6 +46,12 @@ variable "ami_id" {
   type        = string
   description = "The image ID for the EKS worker nodes. If none is provided, Terraform will search for the latest version of their EKS optimized worker AMI based on platform"
   default     = null
+}
+
+variable "tags" {
+  type        = map(string)
+  description = "A map of tags to add to all resources"
+  default     = {}
 }
 
 variable "min_size" {
