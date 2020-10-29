@@ -22,7 +22,7 @@ variable "cluster_name" {
 variable "cluster_version" {
   type        = string
   description = "Kubernetes supported version"
-  default     = "1.15"
+  default     = "1.18"
 }
 
 variable "region" {
