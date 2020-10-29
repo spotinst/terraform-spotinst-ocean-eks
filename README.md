@@ -1,14 +1,17 @@
-# Spot Ocean Amazon EKS Terraform module
+# Spot Ocean EKS Terraform Module
 
-A Terraform module to Amazon EKS cluster with Ocean. The module will install the Ocean Controller into the cluster.
+A Terraform module to create an [Amazon Elastic Kubernetes Service (EKS)](https://aws.amazon.com/eks) cluster with [Spot Ocean](https://spot.io/products/ocean). The module will install the Ocean Controller into the cluster.
 
-## Contents
+## Table of Contents
 
 - [Usage](#usage)
 - [Prerequisites](#prerequisites)
 - [Examples](#examples)
 - [Resources](#resources)
-- [Variables](#variables)
+- [Requirements](#requirements)
+- [Providers](#providers)
+- [Inputs](#inputs)
+- [Outputs](#outputs)
 - [Documentation](#documentation)
 - [Getting Help](#getting-help)
 - [Community](#community)
@@ -17,7 +20,7 @@ A Terraform module to Amazon EKS cluster with Ocean. The module will install the
 
 ## Prerequisites
 
-For `kubectl` to connect and interface properly with your AWS EKS cluster, you have to install and configure the AWS CLI with the `aws-iam-authenticator` component. Instructions on how to install the following components can be found below:
+For `kubectl` to connect and interface properly with your [Amazon Elastic Kubernetes Service (EKS)](https://aws.amazon.com/eks) cluster, you have to install and configure the [AWS Command Line Interface (CLI)](https://aws.amazon.com/cli/) with the `aws-iam-authenticator` component. Instructions on how to install the following components can be found below:
 
 - [aws-cli](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html)
 - [aws-iam-authenticator](https://docs.aws.amazon.com/eks/latest/userguide/install-aws-iam-authenticator.html)
@@ -30,46 +33,82 @@ module "ocean-eks" {
   source = "spotinst/ocean-eks/spotinst"
 
   # Credentials.
-  spotinst_token   = "<spotinst_token>"
-  spotinst_account = "<spotinst_account>"
-
-  # Configuration.
-  cluster_name     = "prod"
-  region           = "us-west-2"
-  min_size         = 1
-  max_size         = 1
-  desired_capacity = 1
-  ...
+  spotinst_token   = var.spotinst_token
+  spotinst_account = var.spotinst_account
 }
 ```
 
 ## Examples
 
-- [Basic](examples/basic)
+- [Simple Cluster](https://github.com/spotinst/terraform-spotinst-ocean-eks/tree/master/examples/simple-cluster)
 
 ## Resources
 
 This module creates and manages the following resources:
 
+- aws_vpc (optional)
 - aws_eks_cluster
 - spotinst_ocean_aws
 
-## Variables
+<!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+## Requirements
 
-| Name                        | Description                                                      | Type     | Default        | Required |
-| --------------------------- | ---------------------------------------------------------------- | -------- | -------------- | :------: |
-| spotinst_token              | Spot Personal Access token.                                      | `string` | none           |   yes    |
-| spotinst_account            | Spot account ID.                                                 | `string` | none           |   yes    |
-| region                      | Region the EKS cluster will be located in.                       | `string` | none           |   yes    |
-| cluster_name                | Cluster name.                                                    | `string` | none           |   yes    |
-| cluster_identifier          | Cluster identifier.                                              | `string` | eks.cluster_id |    no    |
-| cluster_version             | Cluster Kubernetes version.                                      | `string` | 1.15           |    no    |
-| min_size                    | Lower limit of worker nodes the Ocean cluster can scale down to. | `number` | none           |   yes    |
-| max_size                    | Upper limit of worker nodes the Ocean cluster can scale up to.   | `number` | none           |   yes    |
-| desired_capacity            | Number of worker nodes to launch.                                | `number` | none           |   yes    |
-| key_name                    | Key pair to attach to the worker nodes.                          | `string` | none           |    no    |
-| ami_id                      | Image ID for the EKS worker nodes.                               | `string` | latest         |    no    |
-| associate_public_ip_address | Associate a public IP address to worker nodes.                   | `bool`   | false          |    no    |
+| Name | Version |
+|------|---------|
+| terraform | >=0.12.15, <0.13 |
+| spotinst | >= 1.27.0 |
+
+## Providers
+
+| Name | Version |
+|------|---------|
+| aws | n/a |
+| random | n/a |
+| spotinst | >= 1.27.0 |
+
+## Inputs
+
+| Name | Description | Type | Default | Required |
+|------|-------------|------|---------|:--------:|
+| ami\_id | The image ID for the EKS worker nodes. If none is provided, Terraform will search for the latest version of their EKS optimized worker AMI based on platform | `string` | `null` | no |
+| associate\_public\_ip\_address | Associate a public IP address to worker nodes | `bool` | `false` | no |
+| cluster\_identifier | Cluster identifier | `string` | `null` | no |
+| cluster\_name | Cluster name | `string` | `null` | no |
+| cluster\_version | Kubernetes supported version | `string` | `"1.18"` | no |
+| desired\_capacity | The number of worker nodes to launch and maintain in the Ocean cluster | `number` | `1` | no |
+| key\_name | The key pair to attach to the worker nodes launched by Ocean | `string` | `null` | no |
+| max\_size | The upper limit of worker nodes the Ocean cluster can scale up to | `number` | `null` | no |
+| min\_size | The lower limit of worker nodes the Ocean cluster can scale down to | `number` | `null` | no |
+| region | The region the EKS cluster will be located | `string` | `null` | no |
+| spotinst\_account | Spot account ID | `string` | n/a | yes |
+| spotinst\_token | Spot Personal Access token | `string` | n/a | yes |
+| subnets | A list of subnets to place the EKS cluster and workers within | `list(string)` | `null` | no |
+| tags | A map of tags to add to all resources | `map(string)` | `{}` | no |
+| vpc\_id | VPC where the cluster and workers will be deployed | `string` | `null` | no |
+
+## Outputs
+
+| Name | Description |
+|------|-------------|
+| cloudwatch\_log\_group\_name | Name of cloudwatch log group created |
+| cluster\_arn | The Amazon Resource Name (ARN) of the cluster |
+| cluster\_certificate\_authority\_data | Nested attribute containing certificate-authority-data for your cluster. This is the base64 encoded certificate data required to communicate with your cluster |
+| cluster\_endpoint | The endpoint for your EKS Kubernetes API |
+| cluster\_iam\_role\_arn | IAM role ARN of the EKS cluster |
+| cluster\_iam\_role\_name | IAM role name of the EKS cluster |
+| cluster\_id | The name/id of the EKS cluster |
+| cluster\_oidc\_issuer\_url | The URL on the EKS cluster OIDC Issuer |
+| cluster\_security\_group\_id | Security group ID attached to the EKS cluster |
+| cluster\_version | The Kubernetes server version for the EKS cluster |
+| config\_map\_aws\_auth | A kubernetes configuration to authenticate to this EKS cluster |
+| kubeconfig | kubectl config file contents for this EKS cluster |
+| kubeconfig\_filename | The filename of the generated kubectl config |
+| ocean\_cluster\_id | The ID of the Ocean cluster |
+| ocean\_controller\_id | The ID of the Ocean controller |
+| oidc\_provider\_arn | The ARN of the OIDC Provider if `enable_irsa = true` |
+| worker\_iam\_role\_arn | Default IAM role ARN for EKS worker groups |
+
+<!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 
 ## Documentation
 
