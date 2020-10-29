@@ -13,3 +13,7 @@ terraform.tfvars
 
 # jetbrains
 .idea
+
+# misc
+.envrc
+*.json

@@ -1,11 +1,17 @@
 variable "spotinst_token" {
   type        = string
-  description = "Spotinst Personal Access token"
+  description = "Spot Personal Access token"
 }
 
 variable "spotinst_account" {
   type        = string
-  description = "Spotinst account ID"
+  description = "Spot account ID"
+}
+
+variable "region" {
+  type        = string
+  description = "The region the EKS cluster will be located"
+  default     = null
 }
 
 variable "cluster_identifier" {
@@ -17,6 +23,7 @@ variable "cluster_identifier" {
 variable "cluster_name" {
   type        = string
   description = "Cluster name"
+  default     = null
 }
 
 variable "cluster_version" {
@@ -37,11 +44,6 @@ variable "vpc_id" {
   default     = null
 }
 
-variable "region" {
-  type        = string
-  description = "The region the EKS cluster will be located"
-}
-
 variable "ami_id" {
   type        = string
   description = "The image ID for the EKS worker nodes. If none is provided, Terraform will search for the latest version of their EKS optimized worker AMI based on platform"
@@ -57,16 +59,19 @@ variable "tags" {
 variable "min_size" {
   type        = number
   description = "The lower limit of worker nodes the Ocean cluster can scale down to"
+  default     = null
 }
 
 variable "max_size" {
   type        = number
   description = "The upper limit of worker nodes the Ocean cluster can scale up to"
+  default     = null
 }
 
 variable "desired_capacity" {
   type        = number
   description = "The number of worker nodes to launch and maintain in the Ocean cluster"
+  default     = 1
 }
 
 variable "key_name" {
