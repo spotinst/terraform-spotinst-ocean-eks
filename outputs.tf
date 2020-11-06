@@ -82,3 +82,8 @@ output "ocean_controller_id" {
   description = "The ID of the Ocean controller"
   value       = spotinst_ocean_aws.this.controller_id
 }
+
+output "worker_node_security_group_id" {
+  description = "The Security Group ID for the EKS workers"
+  value       = module.eks.worker_security_group_id
+}
