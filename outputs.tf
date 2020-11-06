@@ -73,6 +73,11 @@ output "worker_iam_role_arn" {
   value       = module.eks.worker_iam_role_arn
 }
 
+output "worker_iam_role_name" {
+  description = "Default IAM role name for EKS worker groups"
+  value       = module.eks.worker_iam_role_name
+}
+
 output "ocean_cluster_id" {
   description = "The ID of the Ocean cluster"
   value       = spotinst_ocean_aws.this.id
