@@ -107,6 +107,8 @@ This module creates and manages the following resources:
 | ocean\_controller\_id | The ID of the Ocean controller |
 | oidc\_provider\_arn | The ARN of the OIDC Provider if `enable_irsa = true` |
 | worker\_iam\_role\_arn | Default IAM role ARN for EKS worker groups |
+| worker\_iam\_role\_name | Default IAM role name for EKS worker groups |
+| worker\_node\_security\_group\_id | The Security Group ID for the EKS workers |
 
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 
