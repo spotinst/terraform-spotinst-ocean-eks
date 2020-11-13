@@ -75,6 +75,7 @@ This module creates and manages the following resources:
 | cluster\_identifier | Cluster identifier | `string` | `null` | no |
 | cluster\_name | Cluster name | `string` | `null` | no |
 | cluster\_version | Kubernetes supported version | `string` | `"1.18"` | no |
+| create\_ocean | Controls whether Ocean should be created (it affects all Ocean resources) | `bool` | `true` | no |
 | desired\_capacity | The number of worker nodes to launch and maintain in the Ocean cluster | `number` | `1` | no |
 | key\_name | The key pair to attach to the worker nodes launched by Ocean | `string` | `null` | no |
 | max\_size | The upper limit of worker nodes the Ocean cluster can scale up to | `number` | `null` | no |
@@ -108,7 +109,7 @@ This module creates and manages the following resources:
 | oidc\_provider\_arn | The ARN of the OIDC Provider if `enable_irsa = true` |
 | worker\_iam\_role\_arn | Default IAM role ARN for EKS worker groups |
 | worker\_iam\_role\_name | Default IAM role name for EKS worker groups |
-| worker\_node\_security\_group\_id | The Security Group ID for the EKS workers |
+| worker\_node\_security\_group\_id | The Security Group ID for the EKS worker groups |
 
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 

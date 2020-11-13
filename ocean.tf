@@ -11,10 +11,11 @@ provider "kubernetes" {
 }
 
 resource "spotinst_ocean_aws" "this" {
+  count      = var.create_ocean ? 1 : 0
   depends_on = [module.eks]
 
   name                        = local.cluster_name
-  controller_id               = local.cluster_identifier
+  controller_id               = local.ocean_controller_id
   region                      = data.aws_region.current.id
   max_size                    = var.max_size
   min_size                    = var.min_size
@@ -48,14 +49,18 @@ EOF
 }
 
 module "ocean-controller" {
-  source            = "spotinst/ocean-controller/spotinst"
-  version           = ">=0.9.0"
-  module_depends_on = [module.eks] # maintains backward compatibility with terraform v0.12
+  source  = "spotinst/ocean-controller/spotinst"
+  version = ">=0.10.0"
+
+  # Workaround for backward compatibility with Terraform =<0.13.
+  # Should be replaced with `count` and `depends_on` in the future.
+  create_controller = var.create_ocean
+  module_depends_on = [module.eks]
 
   # Credentials.
   spotinst_token   = var.spotinst_token
   spotinst_account = var.spotinst_account
 
   # Configuration.
-  cluster_identifier = spotinst_ocean_aws.this.controller_id
+  cluster_identifier = local.ocean_controller_id
 }

@@ -85,3 +85,9 @@ variable "associate_public_ip_address" {
   description = "Associate a public IP address to worker nodes"
   default     = false
 }
+
+variable "create_ocean" {
+  type        = bool
+  description = "Controls whether Ocean should be created (it affects all Ocean resources)"
+  default     = true
+}
