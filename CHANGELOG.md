@@ -3,9 +3,16 @@
 
 
 
-<a name="v0.4.0"></a>
-## [v0.4.0] (January 1, 0001)
+<a name="v0.5.0"></a>
+## [v0.5.0] (January 1, 0001)
 
+
+
+<a name="v0.4.0"></a>
+## [v0.4.0] (November 17, 2020)
+
+- fix(eks): avoid unnecessary creation of IAM resources (closes [#3](https://github.com/spotinst/terraform-spotinst-ocean-eks/issues/3))
+- docs(changelog): v0.3.0
 
 
 <a name="v0.3.0"></a>
@@ -35,7 +42,8 @@
 - Initial commit
 
 
-[Unreleased]: https://github.com/spotinst/terraform-spotinst-ocean-eks/compare/v0.4.0...HEAD
+[Unreleased]: https://github.com/spotinst/terraform-spotinst-ocean-eks/compare/v0.5.0...HEAD
+[v0.5.0]: https://github.com/spotinst/terraform-spotinst-ocean-eks/compare/v0.4.0...v0.5.0
 [v0.4.0]: https://github.com/spotinst/terraform-spotinst-ocean-eks/compare/v0.3.0...v0.4.0
 [v0.3.0]: https://github.com/spotinst/terraform-spotinst-ocean-eks/compare/v0.2.0...v0.3.0
 [v0.2.0]: https://github.com/spotinst/terraform-spotinst-ocean-eks/compare/v0.1.0...v0.2.0
