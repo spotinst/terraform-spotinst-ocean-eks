@@ -85,3 +85,9 @@ variable "associate_public_ip_address" {
   description = "Associate a public IP address to worker nodes"
   default     = false
 }
+
+variable "workers_role_name" {
+  type        = string
+  description = "User defined workers role name"
+  default     = ""
+}
