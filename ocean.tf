@@ -22,12 +22,11 @@ resource "spotinst_ocean_aws" "this" {
   desired_capacity            = var.desired_capacity
   subnet_ids                  = local.subnets
   image_id                    = local.ami_id
-  security_groups             = [aws_security_group.all_worker_mgmt.id, module.eks.worker_security_group_id]
+  security_groups             = [module.eks.worker_security_group_id]
   key_name                    = var.key_name
   associate_public_ip_address = var.associate_public_ip_address
-  iam_instance_profile        = aws_iam_instance_profile.workers.arn
-
-  user_data = <<-EOF
+  iam_instance_profile        = element(concat(module.eks.worker_iam_instance_profile_arns, [""]), 0)
+  user_data                   = <<-EOF
     #!/bin/bash
     set -o xtrace
     /etc/eks/bootstrap.sh ${local.cluster_name}
@@ -37,6 +36,7 @@ EOF
     key   = "Name"
     value = "${local.cluster_name}-ocean-cluster-node"
   }
+
   tags {
     key   = "kubernetes.io/cluster/${local.cluster_name}"
     value = "owned"

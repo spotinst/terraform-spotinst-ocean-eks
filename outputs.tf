@@ -1,5 +1,7 @@
+// Amazon's variables
+
 output "cluster_id" {
-  description = "The name/id of the EKS cluster"
+  description = "The name/id of the EKS cluster. Will block on cluster creation until the cluster is really ready"
   value       = module.eks.cluster_id
 }
 
@@ -24,7 +26,7 @@ output "cluster_version" {
 }
 
 output "cluster_security_group_id" {
-  description = "Security group ID attached to the EKS cluster"
+  description = "Security group ID attached to the EKS cluster. On 1.14 or later, this is the 'Additional security groups' in the EKS console"
   value       = module.eks.cluster_security_group_id
 }
 
@@ -48,9 +50,19 @@ output "cluster_oidc_issuer_url" {
   value       = module.eks.cluster_oidc_issuer_url
 }
 
+output "cluster_primary_security_group_id" {
+  description = "The cluster primary security group ID created by the EKS cluster on 1.14 or later. Referred to as 'Cluster security group' in the EKS console"
+  value       = module.eks.cluster_primary_security_group_id
+}
+
 output "cloudwatch_log_group_name" {
   description = "Name of cloudwatch log group created"
   value       = module.eks.cloudwatch_log_group_name
+}
+
+output "cloudwatch_log_group_arn" {
+  description = "Arn of cloudwatch log group created"
+  value       = module.eks.cloudwatch_log_group_arn
 }
 
 output "kubeconfig" {
@@ -68,15 +80,47 @@ output "oidc_provider_arn" {
   value       = module.eks.oidc_provider_arn
 }
 
-output "worker_iam_role_arn" {
-  description = "Default IAM role ARN for EKS worker groups"
-  value       = module.eks.worker_iam_role_arn
+output "workers_user_data" {
+  description = "User data of worker groups"
+  value       = module.eks.workers_user_data
+}
+
+output "workers_default_ami_id" {
+  description = "ID of the default worker group AMI"
+  value       = module.eks.workers_default_ami_id
+}
+
+output "worker_security_group_id" {
+  description = "Security group ID attached to the EKS workers"
+  value       = module.eks.worker_security_group_id
+}
+
+output "worker_iam_instance_profile_arns" {
+  description = "Default IAM instance profile ARN for EKS worker groups"
+  value       = module.eks.worker_iam_instance_profile_arns
+}
+
+output "worker_iam_instance_profile_names" {
+  description = "Default IAM instance profile name for EKS worker groups"
+  value       = module.eks.worker_iam_instance_profile_names
 }
 
 output "worker_iam_role_name" {
   description = "Default IAM role name for EKS worker groups"
   value       = module.eks.worker_iam_role_name
 }
+
+output "worker_iam_role_arn" {
+  description = "Default IAM role ARN for EKS worker groups"
+  value       = module.eks.worker_iam_role_arn
+}
+
+output "security_group_rule_cluster_https_worker_ingress" {
+  description = "Security group rule responsible for allowing pods to communicate with the EKS cluster API"
+  value       = module.eks.security_group_rule_cluster_https_worker_ingress
+}
+
+// Spot's outputs
 
 output "ocean_cluster_id" {
   description = "The ID of the Ocean cluster"
@@ -86,9 +130,4 @@ output "ocean_cluster_id" {
 output "ocean_controller_id" {
   description = "The ID of the Ocean controller"
   value       = local.ocean_controller_id
-}
-
-output "worker_node_security_group_id" {
-  description = "The Security Group ID for the EKS worker groups"
-  value       = module.eks.worker_security_group_id
 }
