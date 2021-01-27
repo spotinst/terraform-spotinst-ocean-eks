@@ -7,7 +7,7 @@ terraform {
 
   required_providers {
     spotinst   = ">= 1.27.0"
-    kubernetes = ">= 1.13.0"
+    kubernetes = ">= 2.0.1"
     aws        = ">= 3.3.0"
     random     = ">= 3.0.0"
   }
