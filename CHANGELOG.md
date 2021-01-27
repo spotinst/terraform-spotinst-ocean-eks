@@ -3,9 +3,17 @@
 
 
 
-<a name="v0.5.0"></a>
-## [v0.5.0] (January 1, 0001)
+<a name="v0.6.0"></a>
+## [v0.6.0] (January 1, 0001)
 
+
+
+<a name="v0.5.0"></a>
+## [v0.5.0] (January 27, 2021)
+
+- chore(deps): bump hashicorp/kubernetes from 1.13 to 2.0
+- fix(variables): cosmetic changes
+- docs(changelog): v0.4.0
 
 
 <a name="v0.4.0"></a>
@@ -42,7 +50,8 @@
 - Initial commit
 
 
-[Unreleased]: https://github.com/spotinst/terraform-spotinst-ocean-eks/compare/v0.5.0...HEAD
+[Unreleased]: https://github.com/spotinst/terraform-spotinst-ocean-eks/compare/v0.6.0...HEAD
+[v0.6.0]: https://github.com/spotinst/terraform-spotinst-ocean-eks/compare/v0.5.0...v0.6.0
 [v0.5.0]: https://github.com/spotinst/terraform-spotinst-ocean-eks/compare/v0.4.0...v0.5.0
 [v0.4.0]: https://github.com/spotinst/terraform-spotinst-ocean-eks/compare/v0.3.0...v0.4.0
 [v0.3.0]: https://github.com/spotinst/terraform-spotinst-ocean-eks/compare/v0.2.0...v0.3.0
