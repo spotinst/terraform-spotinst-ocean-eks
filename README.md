@@ -55,7 +55,7 @@ This module creates and manages the following resources:
 
 | Name | Version |
 |------|---------|
-| terraform | >=0.12.15, <0.13 |
+| terraform | >= 0.12.26, != 0.13.0 |
 | aws | >= 3.3.0 |
 | kubernetes | >= 2.0.1 |
 | random | >= 3.0.0 |

@@ -4,7 +4,7 @@ provider "aws" {
 
 module "vpc" {
   source  = "terraform-aws-modules/vpc/aws"
-  version = ">=2.64.0"
+  version = ">= 2.64.0"
 
   create_vpc         = var.vpc_id == null
   name               = local.cluster_name
@@ -24,7 +24,7 @@ module "vpc" {
 
 module "eks" {
   source  = "terraform-aws-modules/eks/aws"
-  version = ">=13.2.0"
+  version = ">= 14.0.0"
 
   cluster_name                                       = local.cluster_name
   subnets                                            = local.subnets

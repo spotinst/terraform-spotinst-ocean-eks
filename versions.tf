@@ -1,14 +1,26 @@
 terraform {
   # refs:
-  #  - https://git.io/JT17e
+  #  - https://git.io/JtoPX
   #  - https://git.io/JT1xM
   #  - https://git.io/JT1xA
-  required_version = ">=0.12.15, <0.13"
+  required_version = ">= 0.12.26, != 0.13.0"
 
   required_providers {
-    spotinst   = ">= 1.27.0"
-    kubernetes = ">= 2.0.1"
-    aws        = ">= 3.3.0"
-    random     = ">= 3.0.0"
+    spotinst = {
+      source  = "spotinst/spotinst"
+      version = ">= 1.27.0"
+    }
+    kubernetes = {
+      source  = "hashicorp/kubernetes"
+      version = ">= 2.0.1"
+    }
+    aws = {
+      source  = "hashicorp/aws"
+      version = ">= 3.3.0"
+    }
+    random = {
+      source  = "hashicorp/random"
+      version = ">= 3.0.0"
+    }
   }
 }
