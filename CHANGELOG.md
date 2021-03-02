@@ -3,9 +3,20 @@
 
 
 
-<a name="v0.7.0"></a>
-## [v0.7.0] (January 1, 0001)
+<a name="v0.8.0"></a>
+## [v0.8.0] (January 1, 0001)
 
+
+
+<a name="v0.7.0"></a>
+## [v0.7.0] (March 2, 2021)
+
+- docs(readme): re-generate documentation
+- Merge pull request [#7](https://github.com/spotinst/terraform-spotinst-ocean-eks/issues/7) from brettcave/pass_through_ocean_module_variables
+- Bumping to version 0.18.0 to make use of ocean-controller controller_image and image_pull_policy
+- Update README to reflect two new variables controller_image and image_pull_policy
+- Add input variables to pass through to the ocean controller (controller_image and image_pull_policy)
+- docs(changelog): v0.6.0
 
 
 <a name="v0.6.0"></a>
@@ -57,7 +68,8 @@
 - Initial commit
 
 
-[Unreleased]: https://github.com/spotinst/terraform-spotinst-ocean-eks/compare/v0.7.0...HEAD
+[Unreleased]: https://github.com/spotinst/terraform-spotinst-ocean-eks/compare/v0.8.0...HEAD
+[v0.8.0]: https://github.com/spotinst/terraform-spotinst-ocean-eks/compare/v0.7.0...v0.8.0
 [v0.7.0]: https://github.com/spotinst/terraform-spotinst-ocean-eks/compare/v0.6.0...v0.7.0
 [v0.6.0]: https://github.com/spotinst/terraform-spotinst-ocean-eks/compare/v0.5.0...v0.6.0
 [v0.5.0]: https://github.com/spotinst/terraform-spotinst-ocean-eks/compare/v0.4.0...v0.5.0
