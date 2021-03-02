@@ -54,7 +54,7 @@ module "ocean-controller" {
   # Workaround for backward compatibility with Terraform =<0.13.
   # Should be replaced with `count` and `depends_on` in the future.
   create_controller = var.create_ocean
-  controller_image = var.controller_image
+  controller_image  = var.controller_image
   image_pull_policy = var.image_pull_policy
 
   module_depends_on = [module.eks]

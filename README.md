@@ -69,6 +69,25 @@ This module creates and manages the following resources:
 | random | >= 3.0.0 |
 | spotinst | >= 1.27.0 |
 
+## Modules
+
+| Name | Source | Version |
+|------|--------|---------|
+| eks | terraform-aws-modules/eks/aws | >= 14.0.0 |
+| ocean-controller | spotinst/ocean-controller/spotinst | >= 0.18.0 |
+| vpc | terraform-aws-modules/vpc/aws | >= 2.64.0 |
+
+## Resources
+
+| Name |
+|------|
+| [aws_availability_zones](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/availability_zones) |
+| [aws_eks_cluster](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/eks_cluster) |
+| [aws_eks_cluster_auth](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/eks_cluster_auth) |
+| [aws_region](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/region) |
+| [random_string](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/string) |
+| [spotinst_ocean_aws](https://registry.terraform.io/providers/spotinst/spotinst/latest/docs/resources/ocean_aws) |
+
 ## Inputs
 
 | Name | Description | Type | Default | Required |
@@ -178,7 +197,6 @@ This module creates and manages the following resources:
 | worker\_security\_group\_id | Security group ID attached to the EKS workers |
 | workers\_default\_ami\_id | ID of the default worker group AMI |
 | workers\_user\_data | User data of worker groups |
-
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 
 ## Documentation

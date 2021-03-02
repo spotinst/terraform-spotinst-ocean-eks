@@ -19,6 +19,16 @@ No requirements.
 
 No provider.
 
+## Modules
+
+| Name | Source | Version |
+|------|--------|---------|
+| ocean-eks | ../.. |  |
+
+## Resources
+
+No resources.
+
 ## Inputs
 
 | Name | Description | Type | Default | Required |
@@ -56,5 +66,4 @@ No provider.
 | worker\_security\_group\_id | Security group ID attached to the EKS workers |
 | workers\_default\_ami\_id | ID of the default worker group AMI |
 | workers\_user\_data | User data of worker groups |
-
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
