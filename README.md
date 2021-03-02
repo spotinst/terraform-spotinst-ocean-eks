@@ -95,6 +95,7 @@ This module creates and manages the following resources:
 | cluster\_security\_group\_id | If provided, the EKS cluster will be attached to this security group. If not given, a security group will be created with necessary ingress/egress to work with the workers | `string` | `""` | no |
 | cluster\_version | Kubernetes version to use for the EKS cluster | `string` | `"1.18"` | no |
 | config\_output\_path | Where to save the Kubectl config file (if `write_kubeconfig = true`). Assumed to be a directory if the value ends with a forward slash `/` | `string` | `"./"` | no |
+| controller\_image | Set the Docker image name for the Ocean Controller that should be deployed | `string` | `"spotinst/kubernetes-cluster-controller"` | no |
 | create\_eks | Controls if EKS resources should be created (it affects almost all resources) | `bool` | `true` | no |
 | create\_fargate\_pod\_execution\_role | Controls if the EKS Fargate pod execution IAM role should be created | `bool` | `true` | no |
 | create\_ocean | Controls whether Ocean should be created (it affects all Ocean resources) | `bool` | `true` | no |
@@ -104,6 +105,7 @@ This module creates and manages the following resources:
 | fargate\_pod\_execution\_role\_name | The IAM Role that provides permissions for the EKS Fargate Profile | `string` | `null` | no |
 | fargate\_profiles | Fargate profiles to create. See `fargate_profile` keys section in fargate submodule's README.md for more details | `any` | `{}` | no |
 | iam\_path | If provided, all IAM roles will be created on this path | `string` | `"/"` | no |
+| image\_pull\_policy | Image pull policy (one of: Always, Never, IfNotPresent) | `string` | `"IfNotPresent"` | no |
 | key\_name | The key pair to attach to the worker nodes launched by Ocean | `string` | `null` | no |
 | kubeconfig\_aws\_authenticator\_additional\_args | Any additional arguments to pass to the authenticator such as the role to assume. e.g. ["-r", "MyEksRole"] | `list(string)` | `[]` | no |
 | kubeconfig\_aws\_authenticator\_command | Command to use to fetch AWS EKS credentials | `string` | `"aws-iam-authenticator"` | no |

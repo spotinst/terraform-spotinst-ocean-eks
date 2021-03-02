@@ -406,6 +406,18 @@ variable "cluster_identifier" {
   default     = null
 }
 
+variable "controller_image" {
+  type        = string
+  description = "Set the Docker image name for the Ocean Controller that should be deployed"
+  default     = "spotinst/kubernetes-cluster-controller"
+}
+
+variable "image_pull_policy" {
+  type        = string
+  description = "Image pull policy (one of: Always, Never, IfNotPresent)"
+  default     = "IfNotPresent"
+}
+
 variable "ami_id" {
   type        = string
   description = "The image ID for the EKS worker nodes. If none is provided, Terraform will search for the latest version of their EKS optimized worker AMI based on platform"
