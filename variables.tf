@@ -1,11 +1,5 @@
 // Amazon's variables
 
-variable "region" {
-  type        = string
-  description = "The region the EKS cluster will be located"
-  default     = null
-}
-
 variable "cluster_enabled_log_types" {
   type        = list(string)
   description = "A list of the desired control plane logging to enable. For more information, see Amazon EKS Control Plane Logging documentation (https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html)"
@@ -333,7 +327,7 @@ variable "attach_worker_cni_policy" {
 
 variable "create_eks" {
   type        = bool
-  description = "Controls if EKS resources should be created (it affects almost all resources)"
+  description = "Controls whether EKS resources should be created (it affects almost all resources)"
   default     = true
 }
 
@@ -378,7 +372,7 @@ variable "fargate_profiles" {
 
 variable "create_fargate_pod_execution_role" {
   type        = bool
-  description = "Controls if the EKS Fargate pod execution IAM role should be created"
+  description = "Controls whether the EKS Fargate pod execution IAM role should be created"
   default     = true
 }
 

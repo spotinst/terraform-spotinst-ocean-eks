@@ -4,12 +4,13 @@ A Terraform module to create an [Amazon Elastic Kubernetes Service (EKS)](https:
 
 ## Table of Contents
 
-- [Usage](#usage)
 - [Prerequisites](#prerequisites)
+- [Usage](#usage)
 - [Examples](#examples)
-- [Resources](#resources)
 - [Requirements](#requirements)
 - [Providers](#providers)
+- [Modules](#modules)
+- [Resources](#resources)
 - [Inputs](#inputs)
 - [Outputs](#outputs)
 - [Documentation](#documentation)
@@ -42,40 +43,32 @@ module "ocean-eks" {
 
 - [Simple Cluster](https://github.com/spotinst/terraform-spotinst-ocean-eks/tree/master/examples/simple-cluster)
 
-## Resources
-
-This module creates and manages the following resources:
-
-- aws_vpc (optional)
-- aws_eks_cluster
-- spotinst_ocean_aws
-
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 ## Requirements
 
 | Name | Version |
 |------|---------|
-| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 0.12.26, != 0.13.0 |
-| <a name="requirement_aws"></a> [aws](#requirement\_aws) | >= 3.3.0 |
-| <a name="requirement_kubernetes"></a> [kubernetes](#requirement\_kubernetes) | >= 2.0.1 |
-| <a name="requirement_random"></a> [random](#requirement\_random) | >= 3.0.0 |
-| <a name="requirement_spotinst"></a> [spotinst](#requirement\_spotinst) | >= 1.27.0 |
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 0.13.1 |
+| <a name="requirement_aws"></a> [aws](#requirement\_aws) | >= 3.37.0 |
+| <a name="requirement_kubernetes"></a> [kubernetes](#requirement\_kubernetes) | >= 1.10.0 |
+| <a name="requirement_random"></a> [random](#requirement\_random) | >= 3.1.0 |
+| <a name="requirement_spotinst"></a> [spotinst](#requirement\_spotinst) | >= 1.38.0 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_aws"></a> [aws](#provider\_aws) | >= 3.3.0 |
-| <a name="provider_random"></a> [random](#provider\_random) | >= 3.0.0 |
-| <a name="provider_spotinst"></a> [spotinst](#provider\_spotinst) | >= 1.27.0 |
+| <a name="provider_aws"></a> [aws](#provider\_aws) | >= 3.37.0 |
+| <a name="provider_random"></a> [random](#provider\_random) | >= 3.1.0 |
+| <a name="provider_spotinst"></a> [spotinst](#provider\_spotinst) | >= 1.38.0 |
 
 ## Modules
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_eks"></a> [eks](#module\_eks) | terraform-aws-modules/eks/aws | >= 14.0.0 |
-| <a name="module_ocean-controller"></a> [ocean-controller](#module\_ocean-controller) | spotinst/ocean-controller/spotinst | >= 0.18.0 |
-| <a name="module_vpc"></a> [vpc](#module\_vpc) | terraform-aws-modules/vpc/aws | >= 2.64.0 |
+| <a name="module_eks"></a> [eks](#module\_eks) | terraform-aws-modules/eks/aws | >= 15.1.0 |
+| <a name="module_ocean-controller"></a> [ocean-controller](#module\_ocean-controller) | spotinst/ocean-controller/spotinst | >= 0.23.0 |
+| <a name="module_vpc"></a> [vpc](#module\_vpc) | terraform-aws-modules/vpc/aws | >= 2.78.0 |
 
 ## Resources
 
@@ -115,8 +108,8 @@ This module creates and manages the following resources:
 | <a name="input_cluster_version"></a> [cluster\_version](#input\_cluster\_version) | Kubernetes version to use for the EKS cluster | `string` | `"1.18"` | no |
 | <a name="input_config_output_path"></a> [config\_output\_path](#input\_config\_output\_path) | Where to save the Kubectl config file (if `write_kubeconfig = true`). Assumed to be a directory if the value ends with a forward slash `/` | `string` | `"./"` | no |
 | <a name="input_controller_image"></a> [controller\_image](#input\_controller\_image) | Set the Docker image name for the Ocean Controller that should be deployed | `string` | `"spotinst/kubernetes-cluster-controller"` | no |
-| <a name="input_create_eks"></a> [create\_eks](#input\_create\_eks) | Controls if EKS resources should be created (it affects almost all resources) | `bool` | `true` | no |
-| <a name="input_create_fargate_pod_execution_role"></a> [create\_fargate\_pod\_execution\_role](#input\_create\_fargate\_pod\_execution\_role) | Controls if the EKS Fargate pod execution IAM role should be created | `bool` | `true` | no |
+| <a name="input_create_eks"></a> [create\_eks](#input\_create\_eks) | Controls whether EKS resources should be created (it affects almost all resources) | `bool` | `true` | no |
+| <a name="input_create_fargate_pod_execution_role"></a> [create\_fargate\_pod\_execution\_role](#input\_create\_fargate\_pod\_execution\_role) | Controls whether the EKS Fargate pod execution IAM role should be created | `bool` | `true` | no |
 | <a name="input_create_ocean"></a> [create\_ocean](#input\_create\_ocean) | Controls whether Ocean should be created (it affects all Ocean resources) | `bool` | `true` | no |
 | <a name="input_desired_capacity"></a> [desired\_capacity](#input\_desired\_capacity) | The number of worker nodes to launch and maintain in the Ocean cluster | `number` | `1` | no |
 | <a name="input_eks_oidc_root_ca_thumbprint"></a> [eks\_oidc\_root\_ca\_thumbprint](#input\_eks\_oidc\_root\_ca\_thumbprint) | Thumbprint of Root CA for EKS OIDC, Valid until 2037 | `string` | `"9e99a48a9960b14926bb7f3b02e22da2b0ab7280"` | no |
@@ -142,7 +135,6 @@ This module creates and manages the following resources:
 | <a name="input_node_groups"></a> [node\_groups](#input\_node\_groups) | Map of map of node groups to create. See `node_groups` module's documentation for more details | `any` | `{}` | no |
 | <a name="input_node_groups_defaults"></a> [node\_groups\_defaults](#input\_node\_groups\_defaults) | Map of values to be applied to all node groups. See `node_groups` module's documentation for more details | `any` | `{}` | no |
 | <a name="input_permissions_boundary"></a> [permissions\_boundary](#input\_permissions\_boundary) | If provided, all IAM roles will be created with this permissions boundary attached | `string` | `null` | no |
-| <a name="input_region"></a> [region](#input\_region) | The region the EKS cluster will be located | `string` | `null` | no |
 | <a name="input_spotinst_account"></a> [spotinst\_account](#input\_spotinst\_account) | Spot account ID | `string` | n/a | yes |
 | <a name="input_spotinst_token"></a> [spotinst\_token](#input\_spotinst\_token) | Spot Personal Access token | `string` | n/a | yes |
 | <a name="input_subnets"></a> [subnets](#input\_subnets) | A list of subnets to place the EKS cluster and workers within | `list(string)` | `null` | no |
@@ -171,9 +163,10 @@ This module creates and manages the following resources:
 
 | Name | Description |
 |------|-------------|
-| <a name="output_cloudwatch_log_group_arn"></a> [cloudwatch\_log\_group\_arn](#output\_cloudwatch\_log\_group\_arn) | Arn of cloudwatch log group created |
+| <a name="output_cloudwatch_log_group_arn"></a> [cloudwatch\_log\_group\_arn](#output\_cloudwatch\_log\_group\_arn) | ARN of cloudwatch log group created |
 | <a name="output_cloudwatch_log_group_name"></a> [cloudwatch\_log\_group\_name](#output\_cloudwatch\_log\_group\_name) | Name of cloudwatch log group created |
 | <a name="output_cluster_arn"></a> [cluster\_arn](#output\_cluster\_arn) | The Amazon Resource Name (ARN) of the cluster |
+| <a name="output_cluster_ca_certificate"></a> [cluster\_ca\_certificate](#output\_cluster\_ca\_certificate) | Cluster CA certificate (base64 encoded) |
 | <a name="output_cluster_certificate_authority_data"></a> [cluster\_certificate\_authority\_data](#output\_cluster\_certificate\_authority\_data) | Nested attribute containing certificate-authority-data for your cluster. This is the base64 encoded certificate data required to communicate with your cluster |
 | <a name="output_cluster_endpoint"></a> [cluster\_endpoint](#output\_cluster\_endpoint) | The endpoint for your EKS Kubernetes API |
 | <a name="output_cluster_iam_role_arn"></a> [cluster\_iam\_role\_arn](#output\_cluster\_iam\_role\_arn) | IAM role ARN of the EKS cluster |
@@ -182,6 +175,7 @@ This module creates and manages the following resources:
 | <a name="output_cluster_oidc_issuer_url"></a> [cluster\_oidc\_issuer\_url](#output\_cluster\_oidc\_issuer\_url) | The URL on the EKS cluster OIDC Issuer |
 | <a name="output_cluster_primary_security_group_id"></a> [cluster\_primary\_security\_group\_id](#output\_cluster\_primary\_security\_group\_id) | The cluster primary security group ID created by the EKS cluster on 1.14 or later. Referred to as 'Cluster security group' in the EKS console |
 | <a name="output_cluster_security_group_id"></a> [cluster\_security\_group\_id](#output\_cluster\_security\_group\_id) | Security group ID attached to the EKS cluster. On 1.14 or later, this is the 'Additional security groups' in the EKS console |
+| <a name="output_cluster_token"></a> [cluster\_token](#output\_cluster\_token) | The token to use to authenticate with the cluster |
 | <a name="output_cluster_version"></a> [cluster\_version](#output\_cluster\_version) | The Kubernetes server version for the EKS cluster |
 | <a name="output_config_map_aws_auth"></a> [config\_map\_aws\_auth](#output\_config\_map\_aws\_auth) | A kubernetes configuration to authenticate to this EKS cluster |
 | <a name="output_kubeconfig"></a> [kubeconfig](#output\_kubeconfig) | kubectl config file contents for this EKS cluster |

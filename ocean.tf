@@ -1,14 +1,3 @@
-provider "spotinst" {
-  token   = var.spotinst_token
-  account = var.spotinst_account
-}
-
-provider "kubernetes" {
-  host                   = data.aws_eks_cluster.cluster.endpoint
-  token                  = data.aws_eks_cluster_auth.cluster.token
-  cluster_ca_certificate = base64decode(data.aws_eks_cluster.cluster.certificate_authority.0.data)
-}
-
 resource "spotinst_ocean_aws" "this" {
   count      = var.create_ocean ? 1 : 0
   depends_on = [module.eks]
@@ -33,7 +22,7 @@ EOF
 
   tags {
     key   = "Name"
-    value = "${local.cluster_name}-ocean-cluster-node"
+    value = local.cluster_name
   }
 
   tags {
@@ -48,21 +37,14 @@ EOF
 }
 
 module "ocean-controller" {
-  source  = "spotinst/ocean-controller/spotinst"
-  version = ">= 0.18.0"
+  source     = "spotinst/ocean-controller/spotinst"
+  version    = ">= 0.23.0"
+  depends_on = [module.eks]
 
-  # Workaround for backward compatibility with Terraform =<0.13.
-  # Should be replaced with `count` and `depends_on` in the future.
-  create_controller = var.create_ocean
-  controller_image  = var.controller_image
-  image_pull_policy = var.image_pull_policy
-
-  module_depends_on = [module.eks]
-
-  # Credentials.
-  spotinst_token   = var.spotinst_token
-  spotinst_account = var.spotinst_account
-
-  # Configuration.
+  create_controller  = var.create_ocean
+  spotinst_token     = var.spotinst_token
+  spotinst_account   = var.spotinst_account
+  controller_image   = var.controller_image
+  image_pull_policy  = var.image_pull_policy
   cluster_identifier = local.ocean_controller_id
 }

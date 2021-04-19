@@ -1,3 +1,5 @@
+// Amazon's outputs
+
 output "cluster_id" {
   description = "The name/id of the EKS cluster. Will block on cluster creation until the cluster is really ready"
   value       = module.ocean-eks.cluster_id
@@ -117,6 +119,8 @@ output "security_group_rule_cluster_https_worker_ingress" {
   description = "Security group rule responsible for allowing pods to communicate with the EKS cluster API"
   value       = module.ocean-eks.security_group_rule_cluster_https_worker_ingress
 }
+
+// Spot's outputs
 
 output "ocean_cluster_id" {
   description = "The ID of the Ocean cluster"

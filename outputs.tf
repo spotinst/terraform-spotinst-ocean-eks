@@ -61,7 +61,7 @@ output "cloudwatch_log_group_name" {
 }
 
 output "cloudwatch_log_group_arn" {
-  description = "Arn of cloudwatch log group created"
+  description = "ARN of cloudwatch log group created"
   value       = module.eks.cloudwatch_log_group_arn
 }
 
@@ -118,6 +118,18 @@ output "worker_iam_role_arn" {
 output "security_group_rule_cluster_https_worker_ingress" {
   description = "Security group rule responsible for allowing pods to communicate with the EKS cluster API"
   value       = module.eks.security_group_rule_cluster_https_worker_ingress
+}
+
+output "cluster_token" {
+  sensitive   = true
+  description = "The token to use to authenticate with the cluster"
+  value       = element(concat(data.aws_eks_cluster_auth.cluster[*].token, [""]), 0)
+}
+
+output "cluster_ca_certificate" {
+  sensitive   = true
+  description = "Cluster CA certificate (base64 encoded)"
+  value       = element(concat(data.aws_eks_cluster.cluster[*].certificate_authority.0.data, [""]), 0)
 }
 
 // Spot's outputs

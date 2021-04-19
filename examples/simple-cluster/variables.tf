@@ -1,3 +1,5 @@
+// Spot's variables
+
 variable "spotinst_token" {
   type        = string
   description = "Spot Personal Access token"
