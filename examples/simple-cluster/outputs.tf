@@ -1,4 +1,4 @@
-// Amazon's outputs
+// region terraform-aws-modules/eks
 
 output "cluster_id" {
   description = "The name/id of the EKS cluster. Will block on cluster creation until the cluster is really ready"
@@ -120,7 +120,9 @@ output "security_group_rule_cluster_https_worker_ingress" {
   value       = module.ocean-eks.security_group_rule_cluster_https_worker_ingress
 }
 
-// Spot's outputs
+// endregion
+
+// region spotinst/ocean-eks
 
 output "ocean_cluster_id" {
   description = "The ID of the Ocean cluster"
@@ -131,3 +133,5 @@ output "ocean_controller_id" {
   description = "The ID of the Ocean controller"
   value       = module.ocean-eks.ocean_controller_id
 }
+
+// endregion

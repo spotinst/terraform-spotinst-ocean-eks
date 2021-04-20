@@ -52,7 +52,7 @@ module "ocean-eks" {
 | <a name="requirement_aws"></a> [aws](#requirement\_aws) | >= 3.37.0 |
 | <a name="requirement_kubernetes"></a> [kubernetes](#requirement\_kubernetes) | >= 1.10.0 |
 | <a name="requirement_random"></a> [random](#requirement\_random) | >= 3.1.0 |
-| <a name="requirement_spotinst"></a> [spotinst](#requirement\_spotinst) | >= 1.38.0 |
+| <a name="requirement_spotinst"></a> [spotinst](#requirement\_spotinst) | >= 1.39.0 |
 
 ## Providers
 
@@ -60,7 +60,7 @@ module "ocean-eks" {
 |------|---------|
 | <a name="provider_aws"></a> [aws](#provider\_aws) | >= 3.37.0 |
 | <a name="provider_random"></a> [random](#provider\_random) | >= 3.1.0 |
-| <a name="provider_spotinst"></a> [spotinst](#provider\_spotinst) | >= 1.38.0 |
+| <a name="provider_spotinst"></a> [spotinst](#provider\_spotinst) | >= 1.39.0 |
 
 ## Modules
 

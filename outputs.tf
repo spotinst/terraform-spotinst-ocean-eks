@@ -1,4 +1,4 @@
-// Amazon's variables
+// region terraform-aws-modules/eks
 
 output "cluster_id" {
   description = "The name/id of the EKS cluster. Will block on cluster creation until the cluster is really ready"
@@ -132,7 +132,9 @@ output "cluster_ca_certificate" {
   value       = element(concat(data.aws_eks_cluster.cluster[*].certificate_authority.0.data, [""]), 0)
 }
 
-// Spot's outputs
+// endregion
+
+// region spotinst/ocean-eks
 
 output "ocean_cluster_id" {
   description = "The ID of the Ocean cluster"
@@ -143,3 +145,5 @@ output "ocean_controller_id" {
   description = "The ID of the Ocean controller"
   value       = local.ocean_controller_id
 }
+
+// endregion

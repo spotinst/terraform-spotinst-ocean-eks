@@ -18,7 +18,7 @@ To provision this example, run the following from within this directory:
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 0.13.1 |
 | <a name="requirement_aws"></a> [aws](#requirement\_aws) | >= 3.37.0 |
 | <a name="requirement_kubernetes"></a> [kubernetes](#requirement\_kubernetes) | >= 1.10.0 |
-| <a name="requirement_spotinst"></a> [spotinst](#requirement\_spotinst) | >= 1.38.0 |
+| <a name="requirement_spotinst"></a> [spotinst](#requirement\_spotinst) | >= 1.39.0 |
 
 ## Providers
 

@@ -1,4 +1,4 @@
-// Amazon's variables
+// region terraform-aws-modules/eks
 
 variable "cluster_enabled_log_types" {
   type        = list(string)
@@ -382,7 +382,9 @@ variable "fargate_pod_execution_role_name" {
   default     = null
 }
 
-// Spot's variables
+// endregion
+
+// region spotinst/ocean-eks
 
 variable "spotinst_token" {
   type        = string
@@ -398,18 +400,6 @@ variable "cluster_identifier" {
   type        = string
   description = "Cluster identifier"
   default     = null
-}
-
-variable "controller_image" {
-  type        = string
-  description = "Set the Docker image name for the Ocean Controller that should be deployed"
-  default     = "spotinst/kubernetes-cluster-controller"
-}
-
-variable "image_pull_policy" {
-  type        = string
-  description = "Image pull policy (one of: Always, Never, IfNotPresent)"
-  default     = "IfNotPresent"
 }
 
 variable "ami_id" {
@@ -453,3 +443,21 @@ variable "create_ocean" {
   description = "Controls whether Ocean should be created (it affects all Ocean resources)"
   default     = true
 }
+
+// endregion
+
+// region spotinst/ocean-controller
+
+variable "controller_image" {
+  type        = string
+  description = "Set the Docker image name for the Ocean Controller that should be deployed"
+  default     = "spotinst/kubernetes-cluster-controller"
+}
+
+variable "image_pull_policy" {
+  type        = string
+  description = "Image pull policy (one of: Always, Never, IfNotPresent)"
+  default     = "IfNotPresent"
+}
+
+// endregion
