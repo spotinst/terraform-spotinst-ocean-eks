@@ -3,9 +3,16 @@
 
 
 
-<a name="v0.10.0"></a>
-## [v0.10.0] (January 1, 0001)
+<a name="v0.11.0"></a>
+## [v0.11.0] (January 1, 0001)
 
+
+
+<a name="v0.10.0"></a>
+## [v0.10.0] (May 18, 2021)
+
+- chore(deps): update controller image repo to gcr
+- docs(changelog): v0.9.0
 
 
 <a name="v0.9.0"></a>
@@ -83,7 +90,8 @@
 - Initial commit
 
 
-[Unreleased]: https://github.com/spotinst/terraform-spotinst-ocean-eks/compare/v0.10.0...HEAD
+[Unreleased]: https://github.com/spotinst/terraform-spotinst-ocean-eks/compare/v0.11.0...HEAD
+[v0.11.0]: https://github.com/spotinst/terraform-spotinst-ocean-eks/compare/v0.10.0...v0.11.0
 [v0.10.0]: https://github.com/spotinst/terraform-spotinst-ocean-eks/compare/v0.9.0...v0.10.0
 [v0.9.0]: https://github.com/spotinst/terraform-spotinst-ocean-eks/compare/v0.8.0...v0.9.0
 [v0.8.0]: https://github.com/spotinst/terraform-spotinst-ocean-eks/compare/v0.7.0...v0.8.0
