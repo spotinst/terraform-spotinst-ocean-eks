@@ -217,18 +217,6 @@ variable "cluster_delete_timeout" {
   default     = "15m"
 }
 
-variable "wait_for_cluster_cmd" {
-  type        = string
-  description = "Custom local-exec command to execute for determining if the eks cluster is healthy. Cluster endpoint will be available as an environment variable called ENDPOINT"
-  default     = "for i in `seq 1 60`; do if `command -v wget > /dev/null`; then wget --no-check-certificate -O - -q $ENDPOINT/healthz >/dev/null && exit 0 || true; else curl -k -s $ENDPOINT/healthz >/dev/null && exit 0 || true;fi; sleep 5; done; echo TIMEOUT && exit 1"
-}
-
-variable "wait_for_cluster_interpreter" {
-  type        = list(string)
-  description = "Custom local-exec command line interpreter for the command to determining if the eks cluster is healthy"
-  default     = ["/bin/sh", "-c"]
-}
-
 variable "cluster_create_security_group" {
   type        = bool
   description = "Whether to create a security group for the cluster or attach the cluster to `cluster_security_group_id`"
@@ -451,13 +439,13 @@ variable "create_ocean" {
 variable "controller_image" {
   type        = string
   description = "Set the Docker image name for the Ocean Controller that should be deployed"
-  default     = "spotinst/kubernetes-cluster-controller"
+  default     = "gcr.io/spotinst-artifacts/kubernetes-cluster-controller"
 }
 
 variable "image_pull_policy" {
   type        = string
   description = "Image pull policy (one of: Always, Never, IfNotPresent)"
-  default     = "IfNotPresent"
+  default     = "Always"
 }
 
 // endregion

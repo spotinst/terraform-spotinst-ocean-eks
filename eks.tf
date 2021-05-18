@@ -1,6 +1,6 @@
 module "eks" {
   source  = "terraform-aws-modules/eks/aws"
-  version = ">= 15.1.0"
+  version = ">= 16.0.0"
 
   cluster_name                                       = local.cluster_name
   subnets                                            = local.subnets
@@ -36,8 +36,6 @@ module "eks" {
   kubeconfig_name                                    = var.kubeconfig_name
   cluster_create_timeout                             = var.cluster_create_timeout
   cluster_delete_timeout                             = var.cluster_delete_timeout
-  wait_for_cluster_cmd                               = var.wait_for_cluster_cmd
-  wait_for_cluster_interpreter                       = var.wait_for_cluster_interpreter
   cluster_create_security_group                      = var.cluster_create_security_group
   worker_create_security_group                       = var.worker_create_security_group
   worker_create_initial_lifecycle_hooks              = var.worker_create_initial_lifecycle_hooks
