@@ -38,7 +38,7 @@ EOF
 
 module "ocean-controller" {
   source     = "spotinst/ocean-controller/spotinst"
-  version    = ">= 0.27.0"
+  version    = "~> 0.28"
   depends_on = [module.eks]
 
   create_controller  = var.create_ocean

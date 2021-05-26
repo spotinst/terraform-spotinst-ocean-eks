@@ -49,25 +49,25 @@ module "ocean-eks" {
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 0.13.1 |
-| <a name="requirement_aws"></a> [aws](#requirement\_aws) | >= 3.37.0 |
-| <a name="requirement_kubernetes"></a> [kubernetes](#requirement\_kubernetes) | >= 2.2.0 |
-| <a name="requirement_random"></a> [random](#requirement\_random) | >= 3.1.0 |
-| <a name="requirement_spotinst"></a> [spotinst](#requirement\_spotinst) | >= 1.44.0 |
+| <a name="requirement_aws"></a> [aws](#requirement\_aws) | ~> 3.37 |
+| <a name="requirement_kubernetes"></a> [kubernetes](#requirement\_kubernetes) | ~> 2.0 |
+| <a name="requirement_random"></a> [random](#requirement\_random) | ~> 3.1 |
+| <a name="requirement_spotinst"></a> [spotinst](#requirement\_spotinst) | ~> 1.44 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_aws"></a> [aws](#provider\_aws) | >= 3.37.0 |
-| <a name="provider_random"></a> [random](#provider\_random) | >= 3.1.0 |
-| <a name="provider_spotinst"></a> [spotinst](#provider\_spotinst) | >= 1.44.0 |
+| <a name="provider_aws"></a> [aws](#provider\_aws) | ~> 3.37 |
+| <a name="provider_random"></a> [random](#provider\_random) | ~> 3.1 |
+| <a name="provider_spotinst"></a> [spotinst](#provider\_spotinst) | ~> 1.44 |
 
 ## Modules
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_eks"></a> [eks](#module\_eks) | terraform-aws-modules/eks/aws | >= 16.0.0 |
-| <a name="module_ocean-controller"></a> [ocean-controller](#module\_ocean-controller) | spotinst/ocean-controller/spotinst | >= 0.27.0 |
+| <a name="module_eks"></a> [eks](#module\_eks) | terraform-aws-modules/eks/aws | ~> 16.0 |
+| <a name="module_ocean-controller"></a> [ocean-controller](#module\_ocean-controller) | spotinst/ocean-controller/spotinst | ~> 0.28 |
 | <a name="module_vpc"></a> [vpc](#module\_vpc) | terraform-aws-modules/vpc/aws | >= 2.78.0 |
 
 ## Resources
