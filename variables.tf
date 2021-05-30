@@ -36,15 +36,21 @@ variable "cluster_version" {
   default     = "1.18"
 }
 
-variable "config_output_path" {
+variable "kubeconfig_output_path" {
   type        = string
   description = "Where to save the Kubectl config file (if `write_kubeconfig = true`). Assumed to be a directory if the value ends with a forward slash `/`"
   default     = "./"
 }
 
+variable "kubeconfig_file_permission" {
+  type        = string
+  description = "File permission of the Kubectl config file containing cluster configuration saved to `kubeconfig_output_path.`"
+  default     = "0600"
+}
+
 variable "write_kubeconfig" {
   type        = bool
-  description = "Whether to write a Kubectl config file containing the cluster configuration. Saved to `config_output_path`"
+  description = "Whether to write a Kubectl config file containing the cluster configuration. Saved to `kubeconfig_output_path`"
   default     = true
 }
 
