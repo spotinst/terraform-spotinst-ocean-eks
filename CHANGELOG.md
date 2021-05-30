@@ -3,9 +3,16 @@
 
 
 
-<a name="v0.13.0"></a>
-## [v0.13.0] (January 1, 0001)
+<a name="v1.1.0"></a>
+## [v1.1.0] (January 1, 0001)
 
+
+
+<a name="v1.0.0"></a>
+## [v1.0.0] (May 30, 2021)
+
+- chore(deps): bump terraform-aws-modules/eks to v17.0 ([#9](https://github.com/spotinst/terraform-spotinst-ocean-eks/issues/9))
+- docs(changelog): v0.12.0
 
 
 <a name="v0.12.0"></a>
@@ -105,8 +112,9 @@
 - Initial commit
 
 
-[Unreleased]: https://github.com/spotinst/terraform-spotinst-ocean-eks/compare/v0.13.0...HEAD
-[v0.13.0]: https://github.com/spotinst/terraform-spotinst-ocean-eks/compare/v0.12.0...v0.13.0
+[Unreleased]: https://github.com/spotinst/terraform-spotinst-ocean-eks/compare/v1.1.0...HEAD
+[v1.1.0]: https://github.com/spotinst/terraform-spotinst-ocean-eks/compare/v1.0.0...v1.1.0
+[v1.0.0]: https://github.com/spotinst/terraform-spotinst-ocean-eks/compare/v0.12.0...v1.0.0
 [v0.12.0]: https://github.com/spotinst/terraform-spotinst-ocean-eks/compare/v0.11.0...v0.12.0
 [v0.11.0]: https://github.com/spotinst/terraform-spotinst-ocean-eks/compare/v0.10.0...v0.11.0
 [v0.10.0]: https://github.com/spotinst/terraform-spotinst-ocean-eks/compare/v0.9.0...v0.10.0
