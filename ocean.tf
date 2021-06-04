@@ -11,6 +11,7 @@ resource "spotinst_ocean_aws" "this" {
   subnet_ids                  = local.subnets
   image_id                    = local.ami_id
   security_groups             = [module.eks.worker_security_group_id]
+  root_volume_size            = var.root_volume_size
   key_name                    = var.key_name
   associate_public_ip_address = var.associate_public_ip_address
   iam_instance_profile        = element(concat(module.eks.worker_iam_instance_profile_arns, [""]), 0)
