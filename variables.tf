@@ -408,8 +408,6 @@ variable "root_volume_size" {
   default     = 20
 }
 
-
-
 variable "min_size" {
   type        = number
   description = "The lower limit of worker nodes the Ocean cluster can scale down to"
