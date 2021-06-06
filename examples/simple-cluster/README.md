@@ -28,7 +28,7 @@ No providers.
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_ocean-eks"></a> [ocean-eks](#module\_ocean-eks) | ../.. |  |
+| <a name="module_ocean-eks"></a> [ocean-eks](#module\_ocean-eks) | ../.. | n/a |
 
 ## Resources
 

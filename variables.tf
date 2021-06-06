@@ -402,6 +402,12 @@ variable "ami_id" {
   default     = null
 }
 
+variable "root_volume_size" {
+  type        = string
+  description = "The size (in GiB) to allocate for the root volume"
+  default     = null
+}
+
 variable "min_size" {
   type        = number
   description = "The lower limit of worker nodes the Ocean cluster can scale down to"
