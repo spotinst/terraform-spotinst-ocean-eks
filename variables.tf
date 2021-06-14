@@ -438,6 +438,18 @@ variable "associate_public_ip_address" {
   default     = false
 }
 
+variable "whitelist" {
+  type        = list(string)
+  description = "List of instance types allowed in the Ocean cluster (`whitelist` and `blacklist` are mutually exclusive)"
+  default     = null
+}
+
+variable "blacklist" {
+  type        = list(string)
+  description = "List of instance types not allowed in the Ocean cluster (`whitelist` and `blacklist` are mutually exclusive)"
+  default     = null
+}
+
 variable "create_ocean" {
   type        = bool
   description = "Controls whether Ocean should be created (it affects all Ocean resources)"

@@ -14,6 +14,8 @@ resource "spotinst_ocean_aws" "this" {
   root_volume_size            = var.root_volume_size
   key_name                    = var.key_name
   associate_public_ip_address = var.associate_public_ip_address
+  whitelist                   = var.whitelist
+  blacklist                   = var.blacklist
   iam_instance_profile        = element(concat(module.eks.worker_iam_instance_profile_arns, [""]), 0)
   user_data                   = <<-EOF
     #!/bin/bash
