@@ -3,9 +3,16 @@
 
 
 
-<a name="v1.2.0"></a>
-## [v1.2.0] (January 1, 0001)
+<a name="v1.3.0"></a>
+## [v1.3.0] (January 1, 0001)
 
+
+
+<a name="v1.2.0"></a>
+## [v1.2.0] (June 14, 2021)
+
+- feat(ocean): new variables: `whitelist` and `blacklist` (PROD-4617)
+- docs(changelog): v1.1.0
 
 
 <a name="v1.1.0"></a>
@@ -120,7 +127,8 @@
 - Initial commit
 
 
-[Unreleased]: https://github.com/spotinst/terraform-spotinst-ocean-eks/compare/v1.2.0...HEAD
+[Unreleased]: https://github.com/spotinst/terraform-spotinst-ocean-eks/compare/v1.3.0...HEAD
+[v1.3.0]: https://github.com/spotinst/terraform-spotinst-ocean-eks/compare/v1.2.0...v1.3.0
 [v1.2.0]: https://github.com/spotinst/terraform-spotinst-ocean-eks/compare/v1.1.0...v1.2.0
 [v1.1.0]: https://github.com/spotinst/terraform-spotinst-ocean-eks/compare/v1.0.0...v1.1.0
 [v1.0.0]: https://github.com/spotinst/terraform-spotinst-ocean-eks/compare/v0.12.0...v1.0.0
