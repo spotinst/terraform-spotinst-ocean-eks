@@ -10,7 +10,6 @@ resource "spotinst_ocean_aws" "this" {
   desired_capacity            = var.desired_capacity
   subnet_ids                  = local.subnets
   image_id                    = local.ami_id
-  security_groups             = [module.eks.worker_security_group_id]
   root_volume_size            = var.root_volume_size
   key_name                    = var.key_name
   associate_public_ip_address = var.associate_public_ip_address
@@ -22,6 +21,11 @@ resource "spotinst_ocean_aws" "this" {
     set -o xtrace
     /etc/eks/bootstrap.sh ${local.cluster_name}
 EOF
+
+  security_groups = flatten([
+    module.eks.worker_security_group_id,
+    var.worker_additional_security_group_ids,
+  ])
 
   tags {
     key   = "Name"
