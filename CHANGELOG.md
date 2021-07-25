@@ -3,9 +3,16 @@
 
 
 
-<a name="v1.4.0"></a>
-## [v1.4.0] (January 1, 0001)
+<a name="v1.5.0"></a>
+## [v1.5.0] (January 1, 0001)
 
+
+
+<a name="v1.4.0"></a>
+## [v1.4.0] (July 25, 2021)
+
+- feat(vpc): expose upstream variables (resolves [#13](https://github.com/spotinst/terraform-spotinst-ocean-eks/issues/13))
+- docs(changelog): v1.3.0
 
 
 <a name="v1.3.0"></a>
@@ -134,7 +141,8 @@
 - Initial commit
 
 
-[Unreleased]: https://github.com/spotinst/terraform-spotinst-ocean-eks/compare/v1.4.0...HEAD
+[Unreleased]: https://github.com/spotinst/terraform-spotinst-ocean-eks/compare/v1.5.0...HEAD
+[v1.5.0]: https://github.com/spotinst/terraform-spotinst-ocean-eks/compare/v1.4.0...v1.5.0
 [v1.4.0]: https://github.com/spotinst/terraform-spotinst-ocean-eks/compare/v1.3.0...v1.4.0
 [v1.3.0]: https://github.com/spotinst/terraform-spotinst-ocean-eks/compare/v1.2.0...v1.3.0
 [v1.2.0]: https://github.com/spotinst/terraform-spotinst-ocean-eks/compare/v1.1.0...v1.2.0
