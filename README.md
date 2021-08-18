@@ -152,6 +152,7 @@ module "ocean-eks" {
 | <a name="input_tags"></a> [tags](#input\_tags) | A map of tags to add to all resources. Tags added to launch coniguration or templates override these values for ASG Tags only | `map(string)` | `{}` | no |
 | <a name="input_vpc_id"></a> [vpc\_id](#input\_vpc\_id) | VPC where the cluster and workers will be deployed | `string` | `null` | no |
 | <a name="input_whitelist"></a> [whitelist](#input\_whitelist) | List of instance types allowed in the Ocean cluster (`whitelist` and `blacklist` are mutually exclusive) | `list(string)` | `null` | no |
+| <a name="input_spot_percentage"></a> [spot_percentage](#input\_spot\_percentage) | The percentage of Spot instances (vs On Demand) in the Ocean cluster | `number` | `100` | no |
 | <a name="input_worker_additional_security_group_ids"></a> [worker\_additional\_security\_group\_ids](#input\_worker\_additional\_security\_group\_ids) | A list of additional security group ids to attach to worker instances | `list(string)` | `[]` | no |
 | <a name="input_worker_ami_name_filter"></a> [worker\_ami\_name\_filter](#input\_worker\_ami\_name\_filter) | Name filter for AWS EKS worker AMI. If not provided, the latest official AMI for the specified 'cluster\_version' is used | `string` | `""` | no |
 | <a name="input_worker_ami_name_filter_windows"></a> [worker\_ami\_name\_filter\_windows](#input\_worker\_ami\_name\_filter\_windows) | Name filter for AWS EKS Windows worker AMI. If not provided, the latest official AMI for the specified 'cluster\_version' is used | `string` | `""` | no |
