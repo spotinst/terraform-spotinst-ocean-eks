@@ -15,6 +15,7 @@ resource "spotinst_ocean_aws" "this" {
   associate_public_ip_address = var.associate_public_ip_address
   whitelist                   = var.whitelist
   blacklist                   = var.blacklist
+  spot_percentage             = var.spot_percentage
   iam_instance_profile        = element(concat(module.eks.worker_iam_instance_profile_arns, [""]), 0)
   user_data                   = <<-EOF
     #!/bin/bash

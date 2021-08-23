@@ -508,6 +508,12 @@ variable "create_ocean" {
   default     = true
 }
 
+variable "spot_percentage" {
+  type        = number
+  description = "Sets the percentage of nodes that should be Spot (vs On-Demand) in the cluster"
+  default     = 100
+}
+
 // endregion
 
 // region spotinst/ocean-controller
