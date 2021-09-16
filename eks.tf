@@ -2,6 +2,15 @@ module "eks" {
   source  = "terraform-aws-modules/eks/aws"
   version = "~> 17.0"
 
+  autoscaler_cooldown                                = var.autoscaler_cooldown
+  autoscaler_cpu_per_unit                            = var.autoscaler_cpu_per_unit
+  autoscaler_gpu_per_unit                            = var.autoscaler_gpu_per_unit
+  autoscaler_max_memory_gib                          = var.autoscaler_max_memory_gib
+  autoscaler_max_scale_down_percentage               = var.autoscaler_max_scale_down_percentage
+  autoscaler_max_vcpu                                = var.autoscaler_max_vcpu
+  autoscaler_memory_per_unit                         = var.autoscaler_memory_per_unit
+  autoscaler_num_of_units                            = var.autoscaler_num_of_units
+  enable_autoscaler                                  = var.enable_autoscaler
   attach_worker_cni_policy                           = var.attach_worker_cni_policy
   aws_auth_additional_labels                         = var.aws_auth_additional_labels
   cluster_create_endpoint_private_access_sg_rule     = var.cluster_create_endpoint_private_access_sg_rule

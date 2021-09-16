@@ -39,8 +39,26 @@ EOF
   }
 
   autoscaler {
-    autoscale_is_enabled     = true
-    autoscale_is_auto_config = true
+    autoscale_is_enabled     = var.enable_autoscaler
+    autoscale_is_auto_config = var.autoscale_is_auto_config
+    auto_headroom_percentage = var.autoscale_is_auto_config ? var.auto_headroom_percentage : null
+    autoscale_cooldown       = var.enable_autoscaler ? var.autoscaler_cooldown : null
+
+    autoscale_headroom {
+      cpu_per_unit    = var.enable_autoscaler ? var.autoscaler_cpu_per_unit : null
+      gpu_per_unit    = var.enable_autoscaler ? var.autoscaler_gpu_per_unit : null
+      memory_per_unit = var.enable_autoscaler ? var.autoscaler_memory_per_unit : null
+      num_of_units    = var.enable_autoscaler ? var.autoscaler_num_of_units : null
+    }
+
+    autoscale_down {
+      max_scale_down_percentage = var.enable_autoscaler ? var.autoscaler_max_scale_down_percentage : null
+    }
+
+    resource_limits {
+      max_vcpu       = var.enable_autoscaler ? var.autoscaler_max_vcpu : null
+      max_memory_gib = var.enable_autoscaler ? var.autoscaler_max_memory_gib : null
+    }
   }
 }
 
