@@ -514,6 +514,66 @@ variable "spot_percentage" {
   default     = 100
 }
 
+variable "autoscale_is_enabled" {
+  type        = bool
+  description = "Enables/disables the Ocean Kubernetes Auto Scaler. Default is true"
+  default     = true
+}
+
+variable "autoscaler_headroom_percentage" {
+  type        = number
+  description = "Sets the auto headroom percentage (a number in the range [0, 200]) which controls the percentage of headroom from the cluster. Relevant only when autoscale_is_auto_config toggled on"
+  default     = null
+}
+
+variable "autoscaler_cooldown" {
+  type        = number
+  description = "Sets cooldown period between scaling actions"
+  default     = null
+}
+
+variable "autoscaler_cpu_per_unit" {
+  type        = number
+  description = "Configures the number of CPUs to allocate the headroom. CPUs are denoted in millicores, where 1000 millicores = 1 vCPU"
+  default     = null
+}
+
+variable "autoscaler_gpu_per_unit" {
+  type        = number
+  description = "Configures the number of GPUs to allocate the headroom"
+  default     = null
+}
+
+variable "autoscaler_memory_per_unit" {
+  type        = number
+  description = "Configures the amount of memory (MB) to allocate the headroom"
+  default     = null
+}
+
+variable "autoscaler_num_of_units" {
+  type        = number
+  description = "Sets the number of units to retain as headroom, where each unit has the defined headroom CPU and memory."
+  default     = null
+}
+
+variable "autoscaler_max_scale_down_percentage" {
+  type        = number
+  description = "Sets the maximum % to scale-down. Number between 1-100"
+  default     = null
+}
+
+variable "autoscaler_max_vcpu" {
+  type        = number
+  description = "Sets the maximum cpu in vCPU units that can be allocated to the cluster."
+  default     = null
+}
+
+variable "autoscaler_max_memory_gib" {
+  type        = number
+  description = "Sets the maximum memory in GiB units that can be allocated to the cluster"
+  default     = null
+}
+
 // endregion
 
 // region spotinst/ocean-controller

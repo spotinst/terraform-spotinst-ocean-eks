@@ -37,10 +37,37 @@ EOF
     key   = "kubernetes.io/cluster/${local.cluster_name}"
     value = "owned"
   }
-
+  
   autoscaler {
-    autoscale_is_enabled     = true
-    autoscale_is_auto_config = true
+    autoscale_is_enabled     = var.autoscale_is_enabled
+    autoscale_is_auto_config = var.autoscale_is_enabled
+    auto_headroom_percentage = var.autoscaler_headroom_percentage
+    autoscale_cooldown       = var.autoscaler_cooldown
+
+    dynamic "autoscale_headroom" {
+      for_each = var.autoscale_is_enabled && var.autoscaler_cpu_per_unit != null && var.autoscaler_memory_per_unit != null && var.autoscaler_num_of_units != null && var.autoscaler_gpu_per_unit != null ? [1] : []
+      content {
+        cpu_per_unit    = var.autoscaler_cpu_per_unit
+        gpu_per_unit    = var.autoscaler_gpu_per_unit
+        memory_per_unit = var.autoscaler_memory_per_unit
+        num_of_units    = var.autoscaler_num_of_units
+      }
+    }
+
+    dynamic "autoscale_down" {
+      for_each = var.autoscale_is_enabled && var.autoscaler_max_scale_down_percentage != null ? [1] : []
+      content {
+        max_scale_down_percentage = var.autoscaler_max_scale_down_percentage
+      }
+    }
+
+    dynamic "resource_limits" {
+      for_each = var.autoscale_is_enabled && var.autoscaler_max_vcpu != null && var.autoscaler_max_memory_gib != null ? [1] : []
+      content {
+        max_vcpu       = var.autoscaler_max_vcpu
+        max_memory_gib = var.autoscaler_max_memory_gib
+      }
+    }
   }
 }
 
