@@ -524,7 +524,6 @@ variable "update_policy" {
   description = "Configures the cluster update policy"
 }
 
-
 // endregion
 
 // region spotinst/ocean-controller
