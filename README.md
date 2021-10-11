@@ -43,6 +43,17 @@ module "ocean-eks" {
 
 - [Simple Cluster](https://github.com/spotinst/terraform-spotinst-ocean-eks/tree/master/examples/simple-cluster)
 
+- `update_policy`  - roll the cluster in 25% batches on update:
+
+```
+# variables.auto.tfvars: 
+update_policy = {
+    should_roll = true
+    batch_size_percentage = 25
+    launch_spec_ids = []
+}
+```
+
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 ## Requirements
 
@@ -147,6 +158,7 @@ module "ocean-eks" {
 | <a name="input_root_volume_size"></a> [root\_volume\_size](#input\_root\_volume\_size) | The size (in GiB) to allocate for the root volume | `string` | `null` | no |
 | <a name="input_single_nat_gateway"></a> [single\_nat\_gateway](#input\_single\_nat\_gateway) | Should be true if you want to provision a single shared NAT Gateway across all of your private networks | `bool` | `true` | no |
 | <a name="input_spot_percentage"></a> [spot\_percentage](#input\_spot\_percentage) | Sets the percentage of nodes that should be Spot (vs On-Demand) in the cluster | `number` | `100` | no |
+| <a name="input_update_policy"></a> [update\_policy](#input\_update\_policy) | Configures an update policy (see) | `object({should_roll = bool,batch_size_percentage = number,launch_spec_ids = list(string)})` | `null` | no |
 | <a name="input_spotinst_account"></a> [spotinst\_account](#input\_spotinst\_account) | Spot account ID | `string` | n/a | yes |
 | <a name="input_spotinst_token"></a> [spotinst\_token](#input\_spotinst\_token) | Spot Personal Access token | `string` | n/a | yes |
 | <a name="input_subnets"></a> [subnets](#input\_subnets) | A list of subnets to place the EKS cluster and workers within | `list(string)` | `null` | no |

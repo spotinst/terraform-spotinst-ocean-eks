@@ -42,6 +42,17 @@ EOF
     autoscale_is_enabled     = true
     autoscale_is_auto_config = true
   }
+
+  dynamic "update_policy" {
+    for_each = var.update_policy != null ? [var.update_policy] : []
+    content {
+      should_roll = update_policy.value.should_roll
+      roll_config {
+        batch_size_percentage = update_policy.value.batch_size_percentage
+        launch_spec_ids       = update_policy.value.launch_spec_ids
+      }
+    }
+  }
 }
 
 module "ocean-controller" {

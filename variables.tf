@@ -514,6 +514,17 @@ variable "spot_percentage" {
   default     = 100
 }
 
+variable "update_policy" {
+  type = object({
+    should_roll           = bool
+    batch_size_percentage = number
+    launch_spec_ids       = list(string)
+  })
+  default     = null
+  description = "Configures the cluster update policy"
+}
+
+
 // endregion
 
 // region spotinst/ocean-controller
