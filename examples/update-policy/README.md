@@ -1,6 +1,6 @@
-# Simple Cluster
+# Update Policy
 
-This example illustrates how to create a simple cluster.
+This example illustrates how a cluster can be configured to roll in 25% batches.
 
 ## Usage
 
@@ -40,6 +40,7 @@ No resources.
 |------|-------------|------|---------|:--------:|
 | <a name="input_spotinst_account"></a> [spotinst\_account](#input\_spotinst\_account) | Spot account ID | `string` | n/a | yes |
 | <a name="input_spotinst_token"></a> [spotinst\_token](#input\_spotinst\_token) | Spot Personal Access token | `string` | n/a | yes |
+| <a name="input_update_policy"></a> [update\_policy](#input\_update\_policy) | Configures the cluster update policy | <pre>object({<br>    should_roll           = bool<br>    batch_size_percentage = number<br>    launch_spec_ids       = list(string)<br>  })</pre> | `null` | no |
 
 ## Outputs
 
