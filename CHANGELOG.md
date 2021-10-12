@@ -3,9 +3,16 @@
 
 
 
-<a name="v1.6.0"></a>
-## [v1.6.0] (January 1, 0001)
+<a name="v1.7.0"></a>
+## [v1.7.0] (January 1, 0001)
 
+
+
+<a name="v1.6.0"></a>
+## [v1.6.0] (October 12, 2021)
+
+- feat(ocean): allow update policy config ([#20](https://github.com/spotinst/terraform-spotinst-ocean-eks/issues/20))
+- docs(changelog): v1.5.0
 
 
 <a name="v1.5.0"></a>
@@ -148,7 +155,8 @@
 - Initial commit
 
 
-[Unreleased]: https://github.com/spotinst/terraform-spotinst-ocean-eks/compare/v1.6.0...HEAD
+[Unreleased]: https://github.com/spotinst/terraform-spotinst-ocean-eks/compare/v1.7.0...HEAD
+[v1.7.0]: https://github.com/spotinst/terraform-spotinst-ocean-eks/compare/v1.6.0...v1.7.0
 [v1.6.0]: https://github.com/spotinst/terraform-spotinst-ocean-eks/compare/v1.5.0...v1.6.0
 [v1.5.0]: https://github.com/spotinst/terraform-spotinst-ocean-eks/compare/v1.4.0...v1.5.0
 [v1.4.0]: https://github.com/spotinst/terraform-spotinst-ocean-eks/compare/v1.3.0...v1.4.0

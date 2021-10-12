@@ -574,6 +574,16 @@ variable "autoscaler_max_memory_gib" {
   default     = null
 }
 
+variable "update_policy" {
+  type = object({
+    should_roll           = bool
+    batch_size_percentage = number
+    launch_spec_ids       = list(string)
+  })
+  description = "Configures the cluster update policy"
+  default     = null
+}
+
 // endregion
 
 // region spotinst/ocean-controller
