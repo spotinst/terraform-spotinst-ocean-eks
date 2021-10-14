@@ -455,8 +455,8 @@ variable "ami_id" {
 }
 
 variable "worker_userdata" {
-  type = string
-  default = null
+  type        = string
+  default     = null
   description = "Userdata to pass to worker node instances. If none is provided, a default Linux eks bootstrap script is used."
 }
 
