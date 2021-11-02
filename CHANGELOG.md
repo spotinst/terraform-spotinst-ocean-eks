@@ -3,9 +3,16 @@
 
 
 
-<a name="v1.8.0"></a>
-## [v1.8.0] (January 1, 0001)
+<a name="v2.1.0"></a>
+## [v2.1.0] (January 1, 0001)
 
+
+
+<a name="v2.0.0"></a>
+## [v2.0.0] (November 2, 2021)
+
+- feat(ocean): allow users to specify node selector
+- docs(changelog): v1.7.0
 
 
 <a name="v1.7.0"></a>
@@ -163,8 +170,9 @@
 - Initial commit
 
 
-[Unreleased]: https://github.com/spotinst/terraform-spotinst-ocean-eks/compare/v1.8.0...HEAD
-[v1.8.0]: https://github.com/spotinst/terraform-spotinst-ocean-eks/compare/v1.7.0...v1.8.0
+[Unreleased]: https://github.com/spotinst/terraform-spotinst-ocean-eks/compare/v2.1.0...HEAD
+[v2.1.0]: https://github.com/spotinst/terraform-spotinst-ocean-eks/compare/v2.0.0...v2.1.0
+[v2.0.0]: https://github.com/spotinst/terraform-spotinst-ocean-eks/compare/v1.7.0...v2.0.0
 [v1.7.0]: https://github.com/spotinst/terraform-spotinst-ocean-eks/compare/v1.6.0...v1.7.0
 [v1.6.0]: https://github.com/spotinst/terraform-spotinst-ocean-eks/compare/v1.5.0...v1.6.0
 [v1.5.0]: https://github.com/spotinst/terraform-spotinst-ocean-eks/compare/v1.4.0...v1.5.0
