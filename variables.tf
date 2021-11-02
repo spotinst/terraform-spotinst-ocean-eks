@@ -454,6 +454,12 @@ variable "ami_id" {
   default     = null
 }
 
+variable "worker_user_data" {
+  type        = string
+  description = "User data to pass to worker node instances. If none is provided, a default Linux EKS bootstrap script is used"
+  default     = null
+}
+
 variable "root_volume_size" {
   type        = string
   description = "The size (in GiB) to allocate for the root volume"

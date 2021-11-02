@@ -17,11 +17,7 @@ resource "spotinst_ocean_aws" "this" {
   blacklist                   = var.blacklist
   spot_percentage             = var.spot_percentage
   iam_instance_profile        = element(concat(module.eks.worker_iam_instance_profile_arns, [""]), 0)
-  user_data                   = <<-EOF
-    #!/bin/bash
-    set -o xtrace
-    /etc/eks/bootstrap.sh ${local.cluster_name}
-EOF
+  user_data                   = local.worker_user_data
 
   security_groups = flatten([
     module.eks.worker_security_group_id,

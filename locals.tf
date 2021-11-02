@@ -34,6 +34,16 @@ locals {
     ? var.cluster_identifier
     : module.eks.cluster_id
   )
+
+  worker_user_data = (
+    var.worker_user_data != null
+    ? var.worker_user_data
+    : <<-EOF
+    #!/bin/bash
+    set -o xtrace
+    /etc/eks/bootstrap.sh ${local.cluster_name}
+EOF
+  )
 }
 
 resource "random_string" "suffix" {
