@@ -3,9 +3,17 @@
 
 
 
-<a name="v1.7.0"></a>
-## [v1.7.0] (January 1, 0001)
+<a name="v1.8.0"></a>
+## [v1.8.0] (January 1, 0001)
 
+
+
+<a name="v1.7.0"></a>
+## [v1.7.0] (November 2, 2021)
+
+- feat(ocean): allow overridable userdata for worker nodes ([#21](https://github.com/spotinst/terraform-spotinst-ocean-eks/issues/21))
+- feat(ocean): autoscaler configuration ([#19](https://github.com/spotinst/terraform-spotinst-ocean-eks/issues/19))
+- docs(changelog): v1.6.0
 
 
 <a name="v1.6.0"></a>
@@ -155,7 +163,8 @@
 - Initial commit
 
 
-[Unreleased]: https://github.com/spotinst/terraform-spotinst-ocean-eks/compare/v1.7.0...HEAD
+[Unreleased]: https://github.com/spotinst/terraform-spotinst-ocean-eks/compare/v1.8.0...HEAD
+[v1.8.0]: https://github.com/spotinst/terraform-spotinst-ocean-eks/compare/v1.7.0...v1.8.0
 [v1.7.0]: https://github.com/spotinst/terraform-spotinst-ocean-eks/compare/v1.6.0...v1.7.0
 [v1.6.0]: https://github.com/spotinst/terraform-spotinst-ocean-eks/compare/v1.5.0...v1.6.0
 [v1.5.0]: https://github.com/spotinst/terraform-spotinst-ocean-eks/compare/v1.4.0...v1.5.0
