@@ -606,6 +606,12 @@ variable "controller_image" {
   default     = "gcr.io/spotinst-artifacts/kubernetes-cluster-controller"
 }
 
+variable "controller_node_selector" {
+  type        = map(string)
+  description = "Specifies the node selector which must match a node's labels for the Ocean Controller resources to be scheduled on that node"
+  default     = null
+}
+
 variable "image_pull_policy" {
   type        = string
   description = "Image pull policy (one of: Always, Never, IfNotPresent)"
