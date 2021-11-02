@@ -39,8 +39,48 @@ EOF
   }
 
   autoscaler {
-    autoscale_is_enabled     = true
-    autoscale_is_auto_config = true
+    autoscale_is_enabled     = var.autoscaler_is_enabled
+    autoscale_is_auto_config = var.autoscaler_is_auto_config
+    autoscale_cooldown       = var.autoscaler_cooldown
+    auto_headroom_percentage = var.autoscaler_headroom_percentage
+
+    dynamic "autoscale_headroom" {
+      for_each = (
+        var.autoscaler_is_enabled &&
+        var.autoscaler_headroom_cpu_per_unit != null &&
+        var.autoscaler_headroom_memory_per_unit != null &&
+        var.autoscaler_headroom_num_of_units != null &&
+        var.autoscaler_headroom_gpu_per_unit != null
+      ) ? [1] : []
+      content {
+        cpu_per_unit    = var.autoscaler_headroom_cpu_per_unit
+        gpu_per_unit    = var.autoscaler_headroom_gpu_per_unit
+        memory_per_unit = var.autoscaler_headroom_memory_per_unit
+        num_of_units    = var.autoscaler_headroom_num_of_units
+      }
+    }
+
+    dynamic "autoscale_down" {
+      for_each = (
+        var.autoscaler_is_enabled &&
+        var.autoscaler_max_scale_down_percentage != null
+      ) ? [1] : []
+      content {
+        max_scale_down_percentage = var.autoscaler_max_scale_down_percentage
+      }
+    }
+
+    dynamic "resource_limits" {
+      for_each = (
+        var.autoscaler_is_enabled &&
+        var.autoscaler_resource_limits_max_vcpu != null &&
+        var.autoscaler_resource_limits_max_memory_gib != null
+      ) ? [1] : []
+      content {
+        max_vcpu       = var.autoscaler_resource_limits_max_vcpu
+        max_memory_gib = var.autoscaler_resource_limits_max_memory_gib
+      }
+    }
   }
 
   dynamic "update_policy" {
