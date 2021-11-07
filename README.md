@@ -59,9 +59,9 @@ module "ocean-eks" {
 
 | Name | Version |
 |------|---------|
-| <a name="provider_aws"></a> [aws](#provider\_aws) | 3.63.0 |
+| <a name="provider_aws"></a> [aws](#provider\_aws) | 3.62.0 |
 | <a name="provider_random"></a> [random](#provider\_random) | 3.1.0 |
-| <a name="provider_spotinst"></a> [spotinst](#provider\_spotinst) | 1.62.0 |
+| <a name="provider_spotinst"></a> [spotinst](#provider\_spotinst) | 1.60.0 |
 
 ## Modules
 
@@ -163,7 +163,7 @@ module "ocean-eks" {
 | <a name="input_spotinst_account"></a> [spotinst\_account](#input\_spotinst\_account) | Spot account ID | `string` | n/a | yes |
 | <a name="input_spotinst_token"></a> [spotinst\_token](#input\_spotinst\_token) | Spot Personal Access token | `string` | n/a | yes |
 | <a name="input_subnets"></a> [subnets](#input\_subnets) | A list of subnets to place the EKS cluster and workers within | `list(string)` | `null` | no |
-| <a name="input_tags"></a> [tags](#input\_tags) | A map of tags to add to all resources. Tags added to launch coniguration or templates override these values for ASG Tags only | `map(string)` | `{}` | no |
+| <a name="input_tags"></a> [tags](#input\_tags) | A map of tags to add to all resources. Tags added to launch configuration or templates override these values for ASG Tags only | `map(string)` | `{}` | no |
 | <a name="input_update_policy"></a> [update\_policy](#input\_update\_policy) | Configures the cluster update policy | <pre>object({<br>    should_roll           = bool<br>    batch_size_percentage = number<br>    launch_spec_ids       = list(string)<br>  })</pre> | `null` | no |
 | <a name="input_vpc_id"></a> [vpc\_id](#input\_vpc\_id) | VPC where the cluster and workers will be deployed | `string` | `null` | no |
 | <a name="input_whitelist"></a> [whitelist](#input\_whitelist) | List of instance types allowed in the Ocean cluster (`whitelist` and `blacklist` are mutually exclusive) | `list(string)` | `null` | no |

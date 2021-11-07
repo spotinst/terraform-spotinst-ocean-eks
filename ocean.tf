@@ -24,16 +24,6 @@ resource "spotinst_ocean_aws" "this" {
     var.worker_additional_security_group_ids,
   ])
 
-  tags {
-    key   = "Name"
-    value = local.cluster_name
-  }
-
-  tags {
-    key   = "kubernetes.io/cluster/${local.cluster_name}"
-    value = "owned"
-  }
-
   autoscaler {
     autoscale_is_enabled     = var.autoscaler_is_enabled
     autoscale_is_auto_config = var.autoscaler_is_auto_config
@@ -87,6 +77,24 @@ resource "spotinst_ocean_aws" "this" {
         batch_size_percentage = update_policy.value.batch_size_percentage
         launch_spec_ids       = update_policy.value.launch_spec_ids
       }
+    }
+  }
+
+  tags {
+    key   = "Name"
+    value = local.cluster_name
+  }
+
+  tags {
+    key   = "kubernetes.io/cluster/${local.cluster_name}"
+    value = "owned"
+  }
+
+  dynamic "tags" {
+    for_each = var.tags
+    content {
+      key   = tags.key
+      value = tags.value
     }
   }
 }

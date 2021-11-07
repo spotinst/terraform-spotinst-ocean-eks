@@ -99,7 +99,7 @@ variable "subnets" {
 
 variable "tags" {
   type        = map(string)
-  description = "A map of tags to add to all resources. Tags added to launch coniguration or templates override these values for ASG Tags only"
+  description = "A map of tags to add to all resources. Tags added to launch configuration or templates override these values for ASG Tags only"
   default     = {}
 }
 
