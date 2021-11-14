@@ -3,9 +3,16 @@
 
 
 
-<a name="v2.1.0"></a>
-## [v2.1.0] (January 1, 0001)
+<a name="v2.2.0"></a>
+## [v2.2.0] (January 1, 0001)
 
+
+
+<a name="v2.1.0"></a>
+## [v2.1.0] (November 14, 2021)
+
+- feat: add tags to ocean cluster (resolves [#15](https://github.com/spotinst/terraform-spotinst-ocean-eks/issues/15)) ([#22](https://github.com/spotinst/terraform-spotinst-ocean-eks/issues/22))
+- docs(changelog): v2.0.0
 
 
 <a name="v2.0.0"></a>
@@ -170,7 +177,8 @@
 - Initial commit
 
 
-[Unreleased]: https://github.com/spotinst/terraform-spotinst-ocean-eks/compare/v2.1.0...HEAD
+[Unreleased]: https://github.com/spotinst/terraform-spotinst-ocean-eks/compare/v2.2.0...HEAD
+[v2.2.0]: https://github.com/spotinst/terraform-spotinst-ocean-eks/compare/v2.1.0...v2.2.0
 [v2.1.0]: https://github.com/spotinst/terraform-spotinst-ocean-eks/compare/v2.0.0...v2.1.0
 [v2.0.0]: https://github.com/spotinst/terraform-spotinst-ocean-eks/compare/v1.7.0...v2.0.0
 [v1.7.0]: https://github.com/spotinst/terraform-spotinst-ocean-eks/compare/v1.6.0...v1.7.0
