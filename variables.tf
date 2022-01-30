@@ -600,6 +600,12 @@ variable "update_policy" {
 
 // region spotinst/ocean-controller
 
+variable "controller_disable_auto_update" {
+  type        = bool
+  description = "Controls whether the auto-update feature should be disabled for the Ocean Controller"
+  default     = false
+}
+
 variable "controller_image" {
   type        = string
   description = "Set the Docker image name for the Ocean Controller that should be deployed"
