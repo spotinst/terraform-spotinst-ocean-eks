@@ -104,11 +104,12 @@ module "ocean-controller" {
   version    = "~> 0.35"
   depends_on = [module.eks]
 
-  create_controller  = var.create_ocean
-  spotinst_token     = var.spotinst_token
-  spotinst_account   = var.spotinst_account
-  controller_image   = var.controller_image
-  node_selector      = var.controller_node_selector
-  image_pull_policy  = var.image_pull_policy
-  cluster_identifier = local.ocean_controller_id
+  create_controller   = var.create_ocean
+  spotinst_token      = var.spotinst_token
+  spotinst_account    = var.spotinst_account
+  disable_auto_update = var.controller_disable_auto_update
+  controller_image    = var.controller_image
+  node_selector       = var.controller_node_selector
+  image_pull_policy   = var.image_pull_policy
+  cluster_identifier  = local.ocean_controller_id
 }
