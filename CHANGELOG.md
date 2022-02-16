@@ -3,9 +3,16 @@
 
 
 
-<a name="v2.2.0"></a>
-## [v2.2.0] (January 1, 0001)
+<a name="v2.3.0"></a>
+## [v2.3.0] (January 1, 0001)
 
+
+
+<a name="v2.2.0"></a>
+## [v2.2.0] (February 16, 2022)
+
+- feat(ocean): new variable: `controller_disable_auto_update` ([#25](https://github.com/spotinst/terraform-spotinst-ocean-eks/issues/25))
+- docs(changelog): v2.1.0
 
 
 <a name="v2.1.0"></a>
@@ -177,7 +184,8 @@
 - Initial commit
 
 
-[Unreleased]: https://github.com/spotinst/terraform-spotinst-ocean-eks/compare/v2.2.0...HEAD
+[Unreleased]: https://github.com/spotinst/terraform-spotinst-ocean-eks/compare/v2.3.0...HEAD
+[v2.3.0]: https://github.com/spotinst/terraform-spotinst-ocean-eks/compare/v2.2.0...v2.3.0
 [v2.2.0]: https://github.com/spotinst/terraform-spotinst-ocean-eks/compare/v2.1.0...v2.2.0
 [v2.1.0]: https://github.com/spotinst/terraform-spotinst-ocean-eks/compare/v2.0.0...v2.1.0
 [v2.0.0]: https://github.com/spotinst/terraform-spotinst-ocean-eks/compare/v1.7.0...v2.0.0
