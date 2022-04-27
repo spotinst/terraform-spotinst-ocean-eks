@@ -59,9 +59,9 @@ module "ocean-eks" {
 
 | Name | Version |
 |------|---------|
-| <a name="provider_aws"></a> [aws](#provider\_aws) | 3.62.0 |
+| <a name="provider_aws"></a> [aws](#provider\_aws) | 3.63.0 |
 | <a name="provider_random"></a> [random](#provider\_random) | 3.1.0 |
-| <a name="provider_spotinst"></a> [spotinst](#provider\_spotinst) | 1.60.0 |
+| <a name="provider_spotinst"></a> [spotinst](#provider\_spotinst) | 1.62.0 |
 
 ## Modules
 
@@ -160,7 +160,7 @@ module "ocean-eks" {
 | <a name="input_reuse_nat_ips"></a> [reuse\_nat\_ips](#input\_reuse\_nat\_ips) | Should be true if you don't want EIPs to be created for your NAT Gateways and will instead pass them in via the 'external\_nat\_ip\_ids' variable | `bool` | `false` | no |
 | <a name="input_root_volume_size"></a> [root\_volume\_size](#input\_root\_volume\_size) | The size (in GiB) to allocate for the root volume | `string` | `null` | no |
 | <a name="input_single_nat_gateway"></a> [single\_nat\_gateway](#input\_single\_nat\_gateway) | Should be true if you want to provision a single shared NAT Gateway across all of your private networks | `bool` | `true` | no |
-| <a name="input_spot_percentage"></a> [spot\_percentage](#input\_spot\_percentage) | Sets the percentage of nodes that should be Spot (vs On-Demand) in the cluster | `number` | `100` | no |
+| <a name="input_spot_percentage"></a> [spot\_percentage](#input\_spot\_percentage) | Sets the percentage of nodes that should be Spot (vs On-Demand) in the cluster | `number` | `null` | no |
 | <a name="input_spotinst_account"></a> [spotinst\_account](#input\_spotinst\_account) | Spot account ID | `string` | n/a | yes |
 | <a name="input_spotinst_token"></a> [spotinst\_token](#input\_spotinst\_token) | Spot Personal Access token | `string` | n/a | yes |
 | <a name="input_subnets"></a> [subnets](#input\_subnets) | A list of subnets to place the EKS cluster and workers within | `list(string)` | `null` | no |

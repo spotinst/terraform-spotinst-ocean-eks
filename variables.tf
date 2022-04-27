@@ -517,7 +517,7 @@ variable "create_ocean" {
 variable "spot_percentage" {
   type        = number
   description = "Sets the percentage of nodes that should be Spot (vs On-Demand) in the cluster"
-  default     = 100
+  default     = null
 }
 
 variable "autoscaler_is_enabled" {
