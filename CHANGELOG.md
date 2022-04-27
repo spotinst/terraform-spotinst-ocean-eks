@@ -3,9 +3,16 @@
 
 
 
-<a name="v2.3.0"></a>
-## [v2.3.0] (January 1, 0001)
+<a name="v3.1.0"></a>
+## [v3.1.0] (January 1, 0001)
 
+
+
+<a name="v3.0.0"></a>
+## [v3.0.0] (April 27, 2022)
+
+- fix(ocean): remove default value for `spot_percentage`
+- docs(changelog): v2.2.0
 
 
 <a name="v2.2.0"></a>
@@ -184,8 +191,9 @@
 - Initial commit
 
 
-[Unreleased]: https://github.com/spotinst/terraform-spotinst-ocean-eks/compare/v2.3.0...HEAD
-[v2.3.0]: https://github.com/spotinst/terraform-spotinst-ocean-eks/compare/v2.2.0...v2.3.0
+[Unreleased]: https://github.com/spotinst/terraform-spotinst-ocean-eks/compare/v3.1.0...HEAD
+[v3.1.0]: https://github.com/spotinst/terraform-spotinst-ocean-eks/compare/v3.0.0...v3.1.0
+[v3.0.0]: https://github.com/spotinst/terraform-spotinst-ocean-eks/compare/v2.2.0...v3.0.0
 [v2.2.0]: https://github.com/spotinst/terraform-spotinst-ocean-eks/compare/v2.1.0...v2.2.0
 [v2.1.0]: https://github.com/spotinst/terraform-spotinst-ocean-eks/compare/v2.0.0...v2.1.0
 [v2.0.0]: https://github.com/spotinst/terraform-spotinst-ocean-eks/compare/v1.7.0...v2.0.0
