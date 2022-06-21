@@ -635,6 +635,7 @@ variable "controller_resources_requests" {
   //  default = {
   //    cpu    = "0.5"
   //    memory = "512Mi"
+  //  }
 }
 
 variable "image_pull_policy" {
