@@ -618,6 +618,26 @@ variable "controller_node_selector" {
   default     = null
 }
 
+variable "controller_resources_limits" {
+  type        = map(any)
+  description = "Specifies the definition of the maximum amount of compute resources allowed"
+  default     = null
+  //  default = {
+  //    //    cpu    = "0.5"
+  //      //    memory = "512Mi"
+  //        //  }
+  //        }
+}
+
+variable "controller_resources_requests" {
+  type        = map(any)
+  description = "Specifies the definition of the minimum amount of compute resources required"
+  default     = null
+  //  default = {
+  //    cpu    = "0.5"
+  //    memory = "512Mi"
+}
+
 variable "image_pull_policy" {
   type        = string
   description = "Image pull policy (one of: Always, Never, IfNotPresent)"
