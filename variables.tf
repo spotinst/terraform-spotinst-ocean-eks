@@ -623,10 +623,9 @@ variable "controller_resources_limits" {
   description = "Specifies the definition of the maximum amount of compute resources allowed"
   default     = null
   //  default = {
-  //    //    cpu    = "0.5"
-  //      //    memory = "512Mi"
-  //        //  }
-  //        }
+  //    cpu    = "0.5"
+  //    memory = "512Mi"
+  //  }
 }
 
 variable "controller_resources_requests" {
