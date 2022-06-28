@@ -3,9 +3,16 @@
 
 
 
-<a name="v3.1.0"></a>
-## [v3.1.0] (January 1, 0001)
+<a name="v3.2.0"></a>
+## [v3.2.0] (January 1, 0001)
 
+
+
+<a name="v3.1.0"></a>
+## [v3.1.0] (June 28, 2022)
+
+- feat: add resource limits and requests to ocean controller ([#27](https://github.com/spotinst/terraform-spotinst-ocean-eks/issues/27))
+- docs(changelog): v3.0.0
 
 
 <a name="v3.0.0"></a>
@@ -191,7 +198,8 @@
 - Initial commit
 
 
-[Unreleased]: https://github.com/spotinst/terraform-spotinst-ocean-eks/compare/v3.1.0...HEAD
+[Unreleased]: https://github.com/spotinst/terraform-spotinst-ocean-eks/compare/v3.2.0...HEAD
+[v3.2.0]: https://github.com/spotinst/terraform-spotinst-ocean-eks/compare/v3.1.0...v3.2.0
 [v3.1.0]: https://github.com/spotinst/terraform-spotinst-ocean-eks/compare/v3.0.0...v3.1.0
 [v3.0.0]: https://github.com/spotinst/terraform-spotinst-ocean-eks/compare/v2.2.0...v3.0.0
 [v2.2.0]: https://github.com/spotinst/terraform-spotinst-ocean-eks/compare/v2.1.0...v2.2.0
