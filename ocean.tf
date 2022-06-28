@@ -112,6 +112,6 @@ module "ocean-controller" {
   node_selector       = var.controller_node_selector
   image_pull_policy   = var.image_pull_policy
   resources_limits    = var.controller_resource_limits
-  resources_requests  = var.controller_resource_requests
+  resources_requests  = var.controller_resources_requests
   cluster_identifier  = local.ocean_controller_id
 }
