@@ -97,6 +97,13 @@ resource "spotinst_ocean_aws" "this" {
       value = tags.value
     }
   }
+
+  # Prevent Capacity from changing during updates
+  lifecycle {
+    ignore_changes = [
+      desired_capacity
+    ]
+  }
 }
 
 module "ocean-controller" {
