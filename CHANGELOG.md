@@ -3,9 +3,16 @@
 
 
 
-<a name="v3.2.0"></a>
-## [v3.2.0] (January 1, 0001)
+<a name="v3.3.0"></a>
+## [v3.3.0] (January 1, 0001)
 
+
+
+<a name="v3.2.0"></a>
+## [v3.2.0] (July 19, 2022)
+
+- fix(ocean): ignore changes on desired_capacity ([#28](https://github.com/spotinst/terraform-spotinst-ocean-eks/issues/28))
+- docs(changelog): v3.1.0
 
 
 <a name="v3.1.0"></a>
@@ -198,7 +205,8 @@
 - Initial commit
 
 
-[Unreleased]: https://github.com/spotinst/terraform-spotinst-ocean-eks/compare/v3.2.0...HEAD
+[Unreleased]: https://github.com/spotinst/terraform-spotinst-ocean-eks/compare/v3.3.0...HEAD
+[v3.3.0]: https://github.com/spotinst/terraform-spotinst-ocean-eks/compare/v3.2.0...v3.3.0
 [v3.2.0]: https://github.com/spotinst/terraform-spotinst-ocean-eks/compare/v3.1.0...v3.2.0
 [v3.1.0]: https://github.com/spotinst/terraform-spotinst-ocean-eks/compare/v3.0.0...v3.1.0
 [v3.0.0]: https://github.com/spotinst/terraform-spotinst-ocean-eks/compare/v2.2.0...v3.0.0
