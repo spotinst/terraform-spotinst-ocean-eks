@@ -1,5 +1,16 @@
 # Spot Ocean EKS Terraform Module
 
+# This module is deprecated and will be removed from the registry in 30 days.
+
+# Following modules should be used instead -
+- [To create an EKS Cluster and associated resources](https://registry.terraform.io/modules/terraform-aws-modules/eks/aws/latest)
+- [To integrate existing k8s cluster with Spot Ocean](https://registry.terraform.io/modules/spotinst/ocean-aws-k8s/spotinst/latest)
+- [To integrate existing k8s node groups with Ocean launchspec/Virtual Node group (VNG)](https://registry.terraform.io/modules/spotinst/ocean-aws-k8s-vng/spotinst/latest)
+
+## This repository will not have active support any more.
+
+---
+
 A Terraform module to create an [Amazon Elastic Kubernetes Service (EKS)](https://aws.amazon.com/eks) cluster with [Spot Ocean](https://spot.io/products/ocean). The module will install the Ocean Controller into the cluster.
 
 ## Table of Contents
