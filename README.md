@@ -7,6 +7,8 @@
 - [To integrate existing k8s cluster with Spot Ocean](https://registry.terraform.io/modules/spotinst/ocean-aws-k8s/spotinst/latest)
 - [To integrate existing k8s node groups with Ocean launchspec/Virtual Node group (VNG)](https://registry.terraform.io/modules/spotinst/ocean-aws-k8s-vng/spotinst/latest)
 
+- [Example terraform script](https://github.com/spotinst/terraform-spotinst-ocean-aws-k8s/tree/main/examples/complete_from_eks_module) 
+
 ## This repository will not have active support any more.
 
 ---
