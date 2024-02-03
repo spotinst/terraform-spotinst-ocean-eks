@@ -1,0 +1,3 @@
+Request: “change owner to spotinst-ci user(https://registry.terraform.io/namespaces/spotinst-ci)”
+Registry Link: https://registry.terraform.io/modules/spotinst/ocean-eks/spotinst/latest
+Request by: anurag.sharma@netapp.com, chandra.n@netapp.com
